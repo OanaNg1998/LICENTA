@@ -10,6 +10,7 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
@@ -19,6 +20,7 @@ import { ApiAuthorizationModule } from "../api-authorization/api-authorization.m
 import { AdminLayoutModule } from "./layouts/admin-layout/admin-layout.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { AuthorizeGuard } from "../api-authorization/authorize.guard";
+import { AuthLayoutModule } from "./layouts/auth-layout/auth-layout.module";
 
 
 
@@ -35,18 +37,18 @@ import { AuthorizeGuard } from "../api-authorization/authorize.guard";
     ComponentsModule,
     NgbModule,
     RouterModule.forRoot([
-      { path: 'login', component: HomeComponent },
-      { path: 'home', component: AdminLayoutComponent, canActivate: [AuthorizeGuard] },
-      { path: '', component: HomeComponent },
-
-      //{ path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-    ]),
+    { path: 'login', component: HomeComponent },
+    { path: 'home', component: AdminLayoutComponent, canActivate: [AuthorizeGuard] },
+    { path: '', component: HomeComponent },
+], { relativeLinkResolution: 'legacy' }),
 
    // AppRoutingModule,
     ToastrModule.forRoot(),
     ApiAuthorizationModule,
     AdminLayoutModule,
+    AuthLayoutModule,
     BrowserModule,
+    AutocompleteLibModule,
     
   ],
   declarations: [AppComponent, AdminLayoutComponent, HomeComponent, NavMenuComponent],

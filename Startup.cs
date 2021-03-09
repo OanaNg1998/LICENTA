@@ -10,10 +10,9 @@ using JUSTMOVE.Repositories.GenericRepository.AddressRepository;
 using JUSTMOVE.Repositories.GymRepository;
 using JUSTMOVE.Repositories.SubscriptionRepository;
 using JUSTMOVE.Repositories.UserRepository;
-using JUSTMOVE.Services.AddressService;
+
 using JUSTMOVE.Services.EmailSender;
-using JUSTMOVE.Services.GymService;
-using JUSTMOVE.Services.SubscriptionService;
+
 using JUSTMOVE.Services.UserService;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
@@ -26,6 +25,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace JUSTMOVE
 {
@@ -60,8 +60,11 @@ namespace JUSTMOVE
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            services.AddTransient<IEmailSender, EmailSender>();
-            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+
+            services.AddControllersWithViews()
+                .AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore); 
+           
             services.AddTransient<IUserRepository, UserRepository>();
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IUserSubscriptionRepository, UserSubscriptionRepository>();
@@ -72,6 +75,30 @@ namespace JUSTMOVE
             services.AddTransient<IGymService, GymService>();
             services.AddTransient<ISubscriptionRepository, SubscriptionRepository>();
             services.AddTransient<ISubscriptionService, SubscriptionService>();
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+
+            services.Configure<IdentityOptions>(options =>
+            {
+                // Password settings.
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+
+                // Lockout settings.
+                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
+                options.Lockout.MaxFailedAccessAttempts = 5;
+                options.Lockout.AllowedForNewUsers = true;
+
+                // User settings.
+                options.User.AllowedUserNameCharacters =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
+                options.User.RequireUniqueEmail = false;
+
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -97,9 +124,11 @@ namespace JUSTMOVE
             }
 
             app.UseRouting();
+            
 
             app.UseAuthentication();
             app.UseIdentityServer();
+
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {

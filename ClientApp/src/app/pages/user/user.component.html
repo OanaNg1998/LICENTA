@@ -25,14 +25,14 @@
                     <input class=" form-control"
                            placeholder="Email"
                            type="text"
-                           value={{users.email}} />
+                           value={{users.Email}} />
                   </div>
                 </div>
                 <div class=" col-md-4 pl-md-1">
                   <div class=" form-group">
                     <label for="exampleInputEmail1"> Birthday Date </label>
                     <span class=" form-control"
-                          type="email"> {{users.birthDate| date:'longDate'}}</span>
+                          type="email"> {{users.BirthDate| date:'longDate'}}</span>
                   </div>
                 </div>
               </div>
@@ -44,7 +44,7 @@
                            placeholder="Company"
                            type="text"
                            formControlName="firstName"
-                           value={{users.firstName}} />
+                           value={{users.FirstName}} />
                   </div>
                 </div>
                 <div class=" col-md-6 pl-md-1">
@@ -54,7 +54,7 @@
                            placeholder="Last Name"
                            type="text"
                            formControlName="lastName"
-                           value={{users.lastName}} />
+                           value={{users.LastName}} />
                   </div>
                 </div>
               </div>
@@ -133,7 +133,7 @@
                 <img alt="..." class=" avatar" src="https://i.ibb.co/6X4rkB6/football.jpg" />
 
 
-                <h5 class=" title">{{users.firstName}} {{users.lastName}}</h5>
+                <h5 class=" title">{{users.FirstName}} {{users.LastName}}</h5>
               </a>
               <p  class=" description" >Football Player</p>
             </div>
