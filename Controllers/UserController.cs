@@ -8,7 +8,7 @@ using JUSTMOVE.Models;
 
 namespace Just_Move.Controllers
 {
-  //  [Authorize]
+   // [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
@@ -23,8 +23,8 @@ namespace Just_Move.Controllers
         [HttpGet]
         public ApplicationUser GetUserInfo()
         {
-            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // id of the logged in user
-          //  var userId = "d79952bf-757b-42ec-9b0f-b11b136f5606";
+            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // id of the logged in user
+           var userId = "d79952bf-757b-42ec-9b0f-b11b136f5606";
             return _userService.GetUserInfo(userId);
         }
 

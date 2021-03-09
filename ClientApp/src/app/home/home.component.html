@@ -1,3 +1,45 @@
 <app-nav-menu></app-nav-menu>
 
 
+
+<div class="container" style="  width: 50%;
+    top: 40%;
+    position: absolute;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+  ">
+  <ng-autocomplete 
+                   [data]="addresses"
+                   [searchKeyword]="keyword"
+                   [itemTemplate]="itemTemplate"
+                   [notFoundTemplate]="notFoundTemplate"
+                   placeholder="Enter the city">
+
+  </ng-autocomplete>
+  <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.city"></a>
+  </ng-template>
+
+  <ng-template #notFoundTemplate let-notFound>
+    <div [innerHTML]="notFound"></div>
+  </ng-template>
+</div>
+
+
+<button class=" btn btn-fill btn-danger" type="submit" style="    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30%;
+    z-index: -1;
+    transform: translateX(-50%);" [routerLink]='["/home"]' [state]='{ local: true }'>
+  Get Started
+</button>
+
+<img src="https://i.ibb.co/J2Vd0NH/oie-52015196hwtc-XOO.gif"  style="    position: absolute; z-index: 0; left: -5%
+"/>
+<img src="https://i.ibb.co/q9dnFvF/ezgif-com-gif-maker.gif" style="    position: absolute; z-index: 0;
+    right: -5%;
+    top: 60%;
+" />
+<img src="https://i.ibb.co/x8sJR2b/bags-removebg-preview.png"  style="    position: absolute; z-index: 0;length: 40px; width: 70px;right: 40%; top: 82%;" />

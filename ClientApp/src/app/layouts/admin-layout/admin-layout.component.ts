@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: 'app-admin-layout',
-  templateUrl: './admin-layout.component.html',
-  styleUrls: ['./admin-layout.component.css']
+  selector: "app-admin-layout",
+  templateUrl: "./admin-layout.component.html",
+  styleUrls: ["./admin-layout.component.css"]
 })
 export class AdminLayoutComponent implements OnInit {
+  public sidebarColor: string = "red";
 
   constructor() { }
   changeSidebarColor(color) {
     var sidebar = document.getElementsByClassName('sidebar')[0];
     var mainPanel = document.getElementsByClassName('main-panel')[0];
 
-  //  this.sidebarColor = color;
+    this.sidebarColor = color;
 
     if (sidebar != undefined) {
       sidebar.setAttribute('data', color);
@@ -30,8 +31,5 @@ export class AdminLayoutComponent implements OnInit {
       body.classList.remove('white-content');
     }
   }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }

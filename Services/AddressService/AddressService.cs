@@ -30,6 +30,19 @@ namespace JUSTMOVE.Services.AddressService
 
         }
 
-        
+        public ICollection<Address> GetAddresses()
+        {
+            ICollection<Address> cityAddressIds = new List<Address>();
+            var cityAddress = _addressRepository.GetAll();
+            foreach (Address cityaddress in cityAddress)
+            {
+                cityAddressIds.Add(cityaddress);
+            }
+            return cityAddressIds;
+
+
+        }
+
+
     }
 }
