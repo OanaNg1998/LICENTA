@@ -1,5 +1,4 @@
-
-<div class=" content">
+<!--<div class=" content">
   <div class=" row">
     <div class=" col-md-12">
       <div class=" card">
@@ -20,7 +19,7 @@
               <tbody>
                 <tr *ngFor="let gym of gyms;">
                   <td>{{gym.name}}</td>
-                  <td>Address</td>
+                  <td> <img src={{gym.icon}} /></td>
                   <td><button class="btn btn-outline-light" (click)="createSubscription(gym.id)">Make subscription</button></td>
                 </tr>
               </tbody>
@@ -98,4 +97,18 @@
       </div>
     </div>
   </div>
-        -->
+
+  -->
+<div class="col-lg-3 col-md-6 col-sm-6" *ngFor="let gym of gyms" style="margin-left:50%;margin-top:10%;">
+  <div class="card card-stats">
+    <div class="card-header card-header-danger card-header-icon">
+      <div class="card-icon">
+        <i class="material-icons"><img src={{gym.icon}} /></i>
+      </div>
+      <p class="card-category"> {{gym.name}}</p>
+      <button class="btn btn-outline-light" [state]='{ local: true }' (click)="showProgram(gym.id)">See the program</button>
+    </div>
+
+  </div>
+</div>
+<app-showprogrammodal #showProgramModal></app-showprogrammodal>

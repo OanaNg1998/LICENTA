@@ -20,6 +20,9 @@ import { LoadingInterceptor } from "../../interceptors/loading.interceptor";
 import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { ButtonDirective } from '../../layouts/button.directive';
+import { HomeComponent } from "../../home/home.component";
+import { ShowprogrammodalComponent } from "../../pages/gyms/showprogrammodal/showprogrammodal.component";
+import { ModalModule } from "ngx-bootstrap/modal";
 
 
 
@@ -32,9 +35,12 @@ import { ButtonDirective } from '../../layouts/button.directive';
     HttpClientModule,
     NgbModule,
     BrowserModule,
+    ModalModule.forRoot(),
+  
+
   ],
   providers:
-    [{ provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }],
+    [{ provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }, HomeComponent],
   declarations: [
    
     UserComponent,
@@ -43,7 +49,8 @@ import { ButtonDirective } from '../../layouts/button.directive';
     TypographyComponent,
     NotificationsComponent,
     MapComponent,
-    ButtonDirective
+    ButtonDirective,
+    ShowprogrammodalComponent,
     
     // RtlComponent
   ]

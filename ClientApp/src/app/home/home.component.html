@@ -13,6 +13,7 @@
                    [data]="addresses"
                    [searchKeyword]="keyword"
                    [itemTemplate]="itemTemplate"
+                   (selected)='selectEvent($event)'
                    [notFoundTemplate]="notFoundTemplate"
                    placeholder="Enter the city">
 

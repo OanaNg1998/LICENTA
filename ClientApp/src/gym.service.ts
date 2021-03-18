@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -15,8 +15,18 @@ export class GymService {
     'Access-Control-Allow-Origin': '*'
   });
   baseUrl = 'https://localhost:44315/api';
-  getGymsFromCity() {
-    return this.http.get(this.baseUrl + '/Gym', { headers: this.header });
+  getGymsFromCity(city:string)//val: string) {
+  // let param = new HttpParams().set('city', val);
+  {
+    //console.log(city);
+    //console.log(city);
+    let param = new HttpParams().set('city', city);
+    return this.http.get(this.baseUrl + '/Gym',  { headers: this.header, params: param });
+  }
+  getGymById(gymId: string) {
+    console.log(gymId);
+    return this.http.get(this.baseUrl + '/GymTraining/' + gymId, { headers: this.header });
+
   }
  
 

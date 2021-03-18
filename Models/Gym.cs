@@ -15,8 +15,9 @@ namespace JUSTMOVE.Models
         public int DailyClosingHour { get; set; }
         public int WeekendOpenHour { get; set; }
         public int WeekendClosingHour { get; set; }
+        public string Icon { get; set; }
 
-        
+
         public string AddressId { get; set; }
         
 

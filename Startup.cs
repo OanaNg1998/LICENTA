@@ -26,6 +26,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using JUSTMOVE.Repositories.GymTrainingRepository;
+using JUSTMOVE.Services.GymTrainingService;
+using JUSTMOVE.Repositories.TrainingRepository;
 
 namespace JUSTMOVE
 {
@@ -76,7 +79,10 @@ namespace JUSTMOVE
             services.AddTransient<ISubscriptionRepository, SubscriptionRepository>();
             services.AddTransient<ISubscriptionService, SubscriptionService>();
             services.AddTransient<IEmailSender, EmailSender>();
-            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
+            services.AddTransient<IGymTrainingRepository, GymTrainingRepository>();
+            services.AddTransient<IGymTrainingService, GymTrainingService>();
+            services.AddTransient<ITrainingRepository, TrainingRepository>();
+
 
             services.Configure<IdentityOptions>(options =>
             {

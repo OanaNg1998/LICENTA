@@ -29,14 +29,14 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-pin",
     class: ""
   },
-  /*
+  
   {
     path: "notifications",
     title: "Notifications",
     rtlTitle: "إخطارات",
     icon: "icon-bell-55",
     class: ""
-  },*/
+  },
 
   {
     path: "user",

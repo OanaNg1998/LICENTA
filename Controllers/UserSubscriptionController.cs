@@ -18,7 +18,7 @@ namespace Just_Move.Controllers
             _userSubscriptionService = donationService;
         }
 
-        [HttpPost]
+      /*  [HttpPost]
         public IActionResult CreateUserSubscription([FromBody] string gymId)
         {
              var userId = "df4a5c5a-d5df-4717-9d66-8c74acc447a1";
@@ -29,6 +29,7 @@ namespace Just_Move.Controllers
             else
                 return BadRequest("Code already exists");
         }
+      */
 
     }
 }
