@@ -4,14 +4,16 @@ using JUSTMOVE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JUSTMOVE.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210310223914_gymicon")]
+    partial class gymicon
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -272,7 +274,7 @@ namespace JUSTMOVE.Data.Migrations
                             AccessFailedCount = 0,
                             AddressId = "2",
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "fd6ed4a3-ef67-4a56-b8b5-8d5659a82925",
+                            ConcurrencyStamp = "a9a9c81d-0f7a-4ac5-a018-6e7374246140",
                             EmailConfirmed = false,
                             FirstName = "Neagu",
                             Gender = "femeie",
@@ -280,7 +282,7 @@ namespace JUSTMOVE.Data.Migrations
                             LastName = "Oana",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a00f4137-24a2-47f7-9e34-3cf7aaa40046",
+                            SecurityStamp = "45534e69-0b5a-4c9a-92d2-83ec4adc2256",
                             TwoFactorEnabled = false
                         });
                 });
@@ -344,7 +346,6 @@ namespace JUSTMOVE.Data.Migrations
                             AddressId = "3",
                             DailyClosingHour = 22,
                             DailyOpenHour = 8,
-                            Icon = "https://i.ibb.co/LJTxjNF/movement-studio.png",
                             Name = "Movement Studio",
                             WeekendClosingHour = 18,
                             WeekendOpenHour = 9
@@ -355,7 +356,6 @@ namespace JUSTMOVE.Data.Migrations
                             AddressId = "4",
                             DailyClosingHour = 22,
                             DailyOpenHour = 7,
-                            Icon = "https://i.ibb.co/wy6BzPJ/lotusclub-padesu.png",
                             Name = "LotusClub Padesu",
                             WeekendClosingHour = 18,
                             WeekendOpenHour = 7

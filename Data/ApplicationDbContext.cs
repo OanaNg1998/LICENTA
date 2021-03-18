@@ -41,10 +41,10 @@ namespace JUSTMOVE.Data
             modelBuilder.Entity<Address>().HasData(new Address { Id = "7", City = "Bucuresti", County = "Bucuresti", Street = "Tarnave", StreetNumber = 10 });
 
             modelBuilder.Entity<Gym>().ToTable("Gym");
-            modelBuilder.Entity<Gym>().HasData(new Gym { Id = "1", Name = "Titan Academy", DailyOpenHour = 6, DailyClosingHour = 22, WeekendOpenHour = 8, WeekendClosingHour = 20, AddressId = "1" });
+            modelBuilder.Entity<Gym>().HasData(new Gym { Id = "1", Name = "Titan Academy", DailyOpenHour = 6, DailyClosingHour = 22, WeekendOpenHour = 8, WeekendClosingHour = 20,AddressId = "1" });
             modelBuilder.Entity<Gym>().HasData(new Gym { Id = "2", Name = "MaxGym Club", DailyOpenHour = 7, DailyClosingHour = 23, WeekendOpenHour = 7, WeekendClosingHour = 21, AddressId = "2" });
-            modelBuilder.Entity<Gym>().HasData(new Gym { Id = "3", Name = "Movement Studio", DailyOpenHour = 8, DailyClosingHour = 22, WeekendOpenHour = 9, WeekendClosingHour = 18, AddressId = "3" });
-            modelBuilder.Entity<Gym>().HasData(new Gym { Id = "4", Name = "LotusClub Padesu", DailyOpenHour = 7, DailyClosingHour = 22, WeekendOpenHour = 7, WeekendClosingHour = 18, AddressId = "4" });
+            modelBuilder.Entity<Gym>().HasData(new Gym { Id = "3", Name = "Movement Studio", DailyOpenHour = 8, DailyClosingHour = 22, WeekendOpenHour = 9, WeekendClosingHour = 18,Icon= "https://i.ibb.co/LJTxjNF/movement-studio.png", AddressId = "3" });
+            modelBuilder.Entity<Gym>().HasData(new Gym { Id = "4", Name = "LotusClub Padesu", DailyOpenHour = 7, DailyClosingHour = 22, WeekendOpenHour = 7, WeekendClosingHour = 18, Icon = "https://i.ibb.co/wy6BzPJ/lotusclub-padesu.png", AddressId = "4" });
             modelBuilder.Entity<Gym>().HasData(new Gym { Id = "5", Name = "WorldClass Vivo", DailyOpenHour = 6, DailyClosingHour = 22, WeekendOpenHour = 8, WeekendClosingHour = 21, AddressId = "5" });
             modelBuilder.Entity<Gym>().HasData(new Gym { Id = "6", Name = "SerGym", DailyOpenHour = 7, DailyClosingHour = 20, WeekendOpenHour = 8, WeekendClosingHour = 20, AddressId = "6" });
 

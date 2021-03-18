@@ -25,7 +25,7 @@ namespace JUSTMOVE.Controllers
         [HttpGet]
         public ICollection<Gym> GetGymsFromCity(string city)
         {    
-             city = _userService.GetCityByAddressId("7");//7-AddressId-ul userului logat
+            //city = _userService.GetCityByAddressId("7");//7-AddressId-ul userului logat
             return _gymService.GetGymsFromCity(city);
 
         }

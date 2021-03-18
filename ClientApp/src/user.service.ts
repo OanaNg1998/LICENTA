@@ -23,4 +23,5 @@ export class UserService {
   updateUser(user: User) {
     return this.http.put(this.baseUrl + '/User', user, { headers: this.header });
   }
+  
 }
