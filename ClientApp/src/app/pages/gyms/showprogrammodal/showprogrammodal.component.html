@@ -1,35 +1,40 @@
 <div bsModal class=" row modal fade customModal" #showProgramModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="showProgramModal"
      aria-hidden="true">
 
-    <div class=" row " style="  margin-top:3vh; margin-left:5%;margin-right:5%;">
-      <div class=" col-md-12">
-        <div class=" card">
-          <div class=" card-header">
-            <h4 class=" card-title">Group Classes</h4>
-          </div>
-          <div class=" card-body">
-            <div class=" table-responsive">
-              <table class=" table tablesorter" id="">
-                <thead class=" text-primary">
-                  <tr>
-                    <th>Class Name</th>
-                    <th>Hour</th>
-                    <th>Button</th>
+  <div class=" row " style="  margin-top:3vh; margin-left:5%;margin-right:5%;">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h4 class=" card-title">Group Classes</h4>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Class Name</th>
+                  <th>Hour</th>
+                  <th>Button</th>
 
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let training of trainings;">
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let training of trainings;">
                   <td>{{training.name}}</td>
                   <td>{{training.startHour}}:00 - {{training.endHour}}:00</td>
-                  <td><button class="btn btn-outline-light" >Make subscription</button></td>-->
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                  <td><button class="btn btn-outline-light" (click)="showFormular(training.name) ">Make subscription</button></td>-->
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-      
-    
+      </div>
+
+
     </div>
   </div>
+  <h1>aici de afla imaginea</h1>
+  
+  <!--<qrcode [qrdata]="qrCodeString" [width]="100" [errorCorrectionLevel]="'M'"></qrcode>-->
+
+  <app-scheduleclassmodal #scheduleClassModal></app-scheduleclassmodal>

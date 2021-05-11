@@ -23,6 +23,13 @@ import { ButtonDirective } from '../../layouts/button.directive';
 import { HomeComponent } from "../../home/home.component";
 import { ShowprogrammodalComponent } from "../../pages/gyms/showprogrammodal/showprogrammodal.component";
 import { ModalModule } from "ngx-bootstrap/modal";
+import { ScheduleclassmodalComponent } from "../../pages/gyms/showprogrammodal/scheduleclassmodal/scheduleclassmodal.component";
+import { QRCodeModule } from 'angularx-qrcode';
+import { FindmeasuremodalComponent } from "../../pages/user/findmeasuremodal/findmeasuremodal.component";
+
+
+
+
 
 
 
@@ -36,6 +43,11 @@ import { ModalModule } from "ngx-bootstrap/modal";
     NgbModule,
     BrowserModule,
     ModalModule.forRoot(),
+    QRCodeModule,
+    
+   
+    
+    
   
 
   ],
@@ -51,8 +63,12 @@ import { ModalModule } from "ngx-bootstrap/modal";
     MapComponent,
     ButtonDirective,
     ShowprogrammodalComponent,
+    ScheduleclassmodalComponent,
+    FindmeasuremodalComponent,
+
     
     // RtlComponent
-  ]
+  ],
+  
 })
 export class AdminLayoutModule {}

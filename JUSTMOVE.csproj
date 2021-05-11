@@ -23,6 +23,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.10" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="QRCoder" Version="1.4.1" />
+    <PackageReference Include="System.Drawing.Common" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +36,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\models\address.ts" />
+    <None Remove="ClientApp\src\app\models\input.ts" />
     <None Remove="ClientApp\src\app\models\training.ts" />
   </ItemGroup>
 
@@ -43,6 +46,7 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\address.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\input.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\training.ts" />
   </ItemGroup>
 

@@ -79,6 +79,7 @@ namespace JUSTMOVE
             services.AddTransient<ISubscriptionRepository, SubscriptionRepository>();
             services.AddTransient<ISubscriptionService, SubscriptionService>();
             services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<EmailSettings>(Configuration.GetSection("EmailSettings"));
             services.AddTransient<IGymTrainingRepository, GymTrainingRepository>();
             services.AddTransient<IGymTrainingService, GymTrainingService>();
             services.AddTransient<ITrainingRepository, TrainingRepository>();

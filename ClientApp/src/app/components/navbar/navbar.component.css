@@ -1,0 +1,27 @@
+
+.cart_icon {
+  position: relative;
+ /* background: white;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  padding: 4px 10px;
+  z-index:-1;*/
+}
+.cart_icon i{
+    font-size:27px;
+    color:white;
+    top:0;
+    right:0;
+}
+.cart_value {
+  position: absolute;
+  top: -13px;
+  right: -28px;
+  background: #fff;
+  border: 1px solid #f75986;
+  border-radius: 50%;
+  padding: 4px 10px;
+  font-weight: 800;
+  color: #f75986;
+  font-size: 12px;
+}

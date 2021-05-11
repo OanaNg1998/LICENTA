@@ -6,11 +6,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Drawing;
+using QRCoder;
 
 namespace JUSTMOVE.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
+   /* public class Input
+    {
+        public string address { get; set; }
+    }*/
     public class SubscriptionController : ControllerBase
     {
         private readonly ISubscriptionService _subscriptionService;
@@ -29,6 +36,15 @@ namespace JUSTMOVE.Controllers
             }
             return Ok(subscription);
         }
+        [HttpGet("Discount")]
+        public async Task<string> GetQRCode( string  emailAddress)
+        {
+            string qrCode = await _subscriptionService.GetQRCodeAsync(emailAddress);
+
+            return "abcd";
+        }
+
+
 
     }
 }

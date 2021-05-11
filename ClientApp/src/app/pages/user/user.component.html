@@ -165,32 +165,5 @@
     </div>
   </div>
 -->
-<div class=" row">
-  <div class=" col-md-12">
-    <div class=" card">
-      <div class=" card-header">
-        <h4 class=" card-title">Simple Table</h4>
-      </div>
-      <div class=" card-body">
-        <div class=" table-responsive">
-          <table class=" table tablesorter" id="">
-            <thead class=" text-primary">
-              <tr>
-                <th>Class Name</th>
-                <th>Hour</th>
-                <th>Button</th>
-
-              </tr>
-            </thead>
-            <tbody>
-              <tr><!--*ngFor="let class of classess;"-->
-                <!--<td>{{class.name}}</td>
-                <td>{{class.starthour}}{{class.endhour}} </td>
-                <td><button class="btn btn-outline-light" >Make subscription</button></td>-->
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
+<button  class=" btn btn-fill btn-danger button "  (click)="showMeasure()" style="position: absolute; margin-left: 50%; margin-top: 10%;">Find your measures</button>
+<app-findmeasuremodal #findMeasureModal></app-findmeasuremodal>

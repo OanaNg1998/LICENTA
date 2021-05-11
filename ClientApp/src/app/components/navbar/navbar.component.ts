@@ -4,6 +4,8 @@ import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
+
+
 @Component({
   selector: "app-navbar",
   templateUrl: "./navbar.component.html",
@@ -19,6 +21,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public isCollapsed = true;
 
   closeResult: string;
+ 
 
   constructor(
     location: Location,
@@ -54,6 +57,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       }
     });
   }
+ 
 
   collapse() {
     this.isCollapsed = !this.isCollapsed;
