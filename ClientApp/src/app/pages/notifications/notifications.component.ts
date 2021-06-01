@@ -1,11 +1,36 @@
 import { Component, OnInit } from "@angular/core";
 import { ToastrService } from 'ngx-toastr';
+import { CartService } from "../../cart.service";
+import { Equipment } from "../../models/equipment";
+import { ShopService } from "../../shop.service";
+import { UserComponent } from "../user/user.component";
 
 @Component({
   selector: "app-notifications",
-  templateUrl: "notifications.component.html"
+  templateUrl: "notifications.component.html",
+    styleUrls: ['./notifications.component.css']
 })
 export class NotificationsComponent implements OnInit {
+
+  cartContent: Equipment[] = [];
+  constructor(private cartService: CartService) { }
+
+  ngOnInit() {
+
+    this.cartContent = this.cartService.get();
+  //  console.log("am adaugat urm produse:"+this.cartContent);
+
+
+  }
+  delete(id: number) {
+    this.cartContent.splice(id, 1);
+  }
+ 
+
+}
+   
+
+/*export class NotificationsComponent implements OnInit {
   staticAlertClosed  = false;
   staticAlertClosed1 = false;
   staticAlertClosed2 = false;
@@ -16,7 +41,7 @@ export class NotificationsComponent implements OnInit {
   staticAlertClosed7 = false;
 
   constructor(private toastr: ToastrService) {}
-
+  
   showNotification(from, align){
 
       const color = Math.floor((Math.random() * 5) + 1);
@@ -73,4 +98,4 @@ export class NotificationsComponent implements OnInit {
   }
 
   ngOnInit() {}
-}
+}*/

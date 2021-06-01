@@ -1,0 +1,57 @@
+<div bsModal class=" row modal fade customModal" #filterModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="filterModal"
+     aria-hidden="true">
+  <form #filterForm="ngForm" (ngSubmit)="getValues(filterForm.value)">
+    <h5 style="    color: black; margin-left: 5%; margin-top: 5%;">Gender:</h5>
+
+    <div class="form-group">
+      <div class="form-check" style="    margin-left: 10%;color: deepskyblue;">
+        <input class="form-check-input" type="radio" ngModel name="gender" id="gender" value="male" checked>
+        <label class="form-check-label" for="gender">Male</label>
+      </div>
+      <div class="form-check" style="    margin-left: 10%;color: #f75986;">
+        <input class="form-check-input" type="radio" ngModel name="gender" id="gender" value="woman">
+        <label class="form-check-label" for="gender">Female</label>
+      </div>
+    </div>
+    <h5 style="color:black;margin-left:5%;margin-top:5%;">Category:</h5>
+    <select class="categoryFilter" ngModel name="category" (change)="selectChangeHandler($event)">
+      <option value="tshirt" class="option">T-Shirt</option>
+      <option value="shorts" class="option">Shorts</option>
+      <option value="trousers" class="option">Trousers</option>
+      <option value="sneakers" class="option">Sneakers</option>
+    </select>
+    <br />
+    <h5 style="color:black;margin-left:5%;margin-top:5%;">Price:</h5>
+    <br />
+    <br />
+    <ng5-slider [(value)]="value" [(highValue)]="highValue" [options]="options" style="width:60%; height:20%; margin-top:2%;margin-left:5%;" ngModel name="price"></ng5-slider>
+    <br />
+    <br />
+    <h5 style="color:black;margin-left:5%;margin-top:5%;">Measure:</h5>
+    <select class="categoryFilter" ngModel name="measure" *ngIf=" !(isTrousers) && !(isShorts) && !(isTshirt)  && !(isSneakers) ">
+    </select>
+
+    <select class="categoryFilter" ngModel name="measure" *ngIf=" isTrousers || isShorts || isTshirt ">
+      <option value="tshirt" class="option">XS</option>
+      <option value="shorts" class="option">S</option>
+      <option value="trousers" class="option">M</option>
+      <option value="sneakers" class="option">L</option>
+      <option value="sneakers" class="option">XL</option>
+      <option value="sneakers" class="option">XXL</option>
+    </select>
+    <select class="categoryFilter" ngModel name="measure" *ngIf=" isSneakers">
+      <option value="tshirt" class="option">35</option>
+      <option value="shorts" class="option">36</option>
+      <option value="trousers" class="option">37</option>
+      <option value="sneakers" class="option">38</option>
+      <option value="sneakers" class="option">39</option>
+      <option value="sneakers" class="option">40</option>
+      <option value="sneakers" class="option">41</option>
+      <option value="sneakers" class="option">42</option>
+    </select>
+    <br />
+    <br />
+    <button class=" btn btn-fill btn-danger button " style="margin-left:5%;" (click)="setFilterValues(filterForm.value)">Filter</button>
+
+  </form>
+</div>

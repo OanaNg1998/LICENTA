@@ -154,6 +154,8 @@ export class FindmeasuremodalComponent implements OnInit {
 
       })
     }
+    this.modal.hide();
   }
+  
 
 }

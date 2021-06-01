@@ -1,0 +1,9 @@
+.quantity_button {
+  background: #f75986;
+  border-radius: 50%;
+  font-size: 16px;
+  margin: 0 8px;
+}
+.quantity_button i{
+    color:white;
+}

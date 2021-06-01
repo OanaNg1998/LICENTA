@@ -26,6 +26,7 @@ namespace JUSTMOVE.Data
         public DbSet<Subscription> Subscriptions { get; set; }
         public DbSet<Training> Trainings { get; set; }
         public DbSet<UserSubscription> UserSubscriptions { get; set; }
+        public DbSet<Equipment> Equipment { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -51,7 +52,10 @@ namespace JUSTMOVE.Data
             modelBuilder.Entity<ApplicationUser>().ToTable("AspNetUsers");
             modelBuilder.Entity<ApplicationUser>().HasData(new ApplicationUser { Id = "1", FirstName = "Neagu", LastName = "Oana", AddressId = "2", Gender = "femeie", IntrestDomain = "Fitness" });
 
-
+            modelBuilder.Entity<Equipment>().ToTable("Equipment");
+            modelBuilder.Entity<Equipment>().HasData(new Equipment { Id = "1", ProductName = "Nike Crop Top", Category = "tshirt", Price = 100, Image= "https://i.ibb.co/j5qD0gp/new-crop-top.png",Gender="woman",Quantity=1,Brand="Nike"});
+            modelBuilder.Entity<Equipment>().HasData(new Equipment { Id = "2", ProductName = "Adidas Man Shorts", Category = "shorts", Price = 200, Image = "https://i.ibb.co/GTBzGt4/adidas-man-shorts.jpg",Gender="male", Quantity = 1,Brand="Adidas" });
+            modelBuilder.Entity<Equipment>().HasData(new Equipment { Id = "3", ProductName = "Nike Running Trousers", Category = "trousers", Price = 250, Image = "https://i.ibb.co/zVTD7HK/nike-trousers.jpg", Gender = "woman", Quantity = 1 ,Brand="Nike"});
 
         }
 

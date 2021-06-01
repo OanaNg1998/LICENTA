@@ -26,6 +26,10 @@ import { ModalModule } from "ngx-bootstrap/modal";
 import { ScheduleclassmodalComponent } from "../../pages/gyms/showprogrammodal/scheduleclassmodal/scheduleclassmodal.component";
 import { QRCodeModule } from 'angularx-qrcode';
 import { FindmeasuremodalComponent } from "../../pages/user/findmeasuremodal/findmeasuremodal.component";
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FiltermodalComponent } from "../../pages/user/filtermodal/filtermodal.component";
+import { Ng5SliderModule } from 'ng5-slider';
 
 
 
@@ -44,6 +48,10 @@ import { FindmeasuremodalComponent } from "../../pages/user/findmeasuremodal/fin
     BrowserModule,
     ModalModule.forRoot(),
     QRCodeModule,
+    SimpleNotificationsModule.forRoot(),
+    BrowserAnimationsModule,
+    Ng5SliderModule,
+   
     
    
     
@@ -65,6 +73,8 @@ import { FindmeasuremodalComponent } from "../../pages/user/findmeasuremodal/fin
     ShowprogrammodalComponent,
     ScheduleclassmodalComponent,
     FindmeasuremodalComponent,
+    FiltermodalComponent
+  
 
     
     // RtlComponent

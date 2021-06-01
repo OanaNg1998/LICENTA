@@ -1,0 +1,14 @@
+.customModal {
+  background-color: white;
+  border-radius: 10px;
+  max-height: 70vh;
+  max-width: 40vw;
+  margin-left: 35vw;
+  margin-top: 13.5vh;
+}
+.categoryFilter {
+  border: 5px solid #f75986;
+  border-radius: 10px;
+  margin-top: -10%;
+  margin-left: 5%;
+}

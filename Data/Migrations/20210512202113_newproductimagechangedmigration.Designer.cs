@@ -4,14 +4,16 @@ using JUSTMOVE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JUSTMOVE.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210512202113_newproductimagechangedmigration")]
+    partial class newproductimagechangedmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -272,7 +274,7 @@ namespace JUSTMOVE.Data.Migrations
                             AccessFailedCount = 0,
                             AddressId = "2",
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "c9bf9694-9860-4d2e-8003-420f4216ce27",
+                            ConcurrencyStamp = "4833ebfa-bcc2-4d22-9068-11950540197f",
                             EmailConfirmed = false,
                             FirstName = "Neagu",
                             Gender = "femeie",
@@ -280,7 +282,7 @@ namespace JUSTMOVE.Data.Migrations
                             LastName = "Oana",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d9c523d-c019-4bb6-a8fd-9f0fbf019a93",
+                            SecurityStamp = "c0dda7b1-aa8f-4fc3-bdd6-f408b9077653",
                             TwoFactorEnabled = false
                         });
                 });
@@ -289,9 +291,6 @@ namespace JUSTMOVE.Data.Migrations
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Brand")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
@@ -311,9 +310,6 @@ namespace JUSTMOVE.Data.Migrations
                     b.Property<string>("ProductName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Equipment");
@@ -322,35 +318,29 @@ namespace JUSTMOVE.Data.Migrations
                         new
                         {
                             Id = "1",
-                            Brand = "Nike",
-                            Category = "tshirt",
+                            Category = "T-shirt",
                             Gender = "woman",
                             Image = "https://i.ibb.co/j5qD0gp/new-crop-top.png",
                             Price = 100,
-                            ProductName = "Nike Crop Top",
-                            Quantity = 1
+                            ProductName = "Nike Crop Top"
                         },
                         new
                         {
                             Id = "2",
-                            Brand = "Adidas",
-                            Category = "shorts",
+                            Category = "Shorts",
                             Gender = "male",
                             Image = "https://i.ibb.co/GTBzGt4/adidas-man-shorts.jpg",
                             Price = 200,
-                            ProductName = "Adidas Man Shorts",
-                            Quantity = 1
+                            ProductName = "Adidas Man Shorts"
                         },
                         new
                         {
                             Id = "3",
-                            Brand = "Nike",
-                            Category = "trousers",
+                            Category = "Trousers",
                             Gender = "woman",
                             Image = "https://i.ibb.co/zVTD7HK/nike-trousers.jpg",
                             Price = 250,
-                            ProductName = "Nike Running Trousers",
-                            Quantity = 1
+                            ProductName = "Nike Running Trousers"
                         });
                 });
 

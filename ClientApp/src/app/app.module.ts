@@ -21,6 +21,9 @@ import { AdminLayoutModule } from "./layouts/admin-layout/admin-layout.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { AuthorizeGuard } from "../api-authorization/authorize.guard";
 import { AuthLayoutModule } from "./layouts/auth-layout/auth-layout.module";
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { Ng5SliderModule } from 'ng5-slider';
+
 
 
 
@@ -50,6 +53,10 @@ import { AuthLayoutModule } from "./layouts/auth-layout/auth-layout.module";
     AuthLayoutModule,
     BrowserModule,
     AutocompleteLibModule,
+    SimpleNotificationsModule.forRoot(),
+    BrowserAnimationsModule,
+    Ng5SliderModule,
+
     
   ],
   declarations: [AppComponent, AdminLayoutComponent, HomeComponent, NavMenuComponent],

@@ -33,6 +33,8 @@ namespace Just_Move.Controllers
         {
             _userService.UpdateUserInfo(userDTO);
         }
+      
+
 
 
 

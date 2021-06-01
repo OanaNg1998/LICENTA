@@ -68,7 +68,10 @@ export class ShowprogrammodalComponent implements OnInit {
       confirmButtonText: 'Ok,got it !',
       confirmButtonColor: "#f75986",
       
-    })/*.then((result) => {
+    })
+   
+
+    /*.then((result) => {
       if (result.value) {
         Swal.fire(
           'Deleted!',

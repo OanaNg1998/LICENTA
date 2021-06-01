@@ -4,14 +4,16 @@ using JUSTMOVE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JUSTMOVE.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210527195114_adingbrandtoequipment")]
+    partial class adingbrandtoequipment
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -272,7 +274,7 @@ namespace JUSTMOVE.Data.Migrations
                             AccessFailedCount = 0,
                             AddressId = "2",
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "c9bf9694-9860-4d2e-8003-420f4216ce27",
+                            ConcurrencyStamp = "955f3413-a9b7-4d9f-ad7d-4cdf7902d80a",
                             EmailConfirmed = false,
                             FirstName = "Neagu",
                             Gender = "femeie",
@@ -280,7 +282,7 @@ namespace JUSTMOVE.Data.Migrations
                             LastName = "Oana",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d9c523d-c019-4bb6-a8fd-9f0fbf019a93",
+                            SecurityStamp = "ffb7807e-21b3-4770-9e46-44a9a5a49533",
                             TwoFactorEnabled = false
                         });
                 });
@@ -323,7 +325,7 @@ namespace JUSTMOVE.Data.Migrations
                         {
                             Id = "1",
                             Brand = "Nike",
-                            Category = "tshirt",
+                            Category = "T-shirt",
                             Gender = "woman",
                             Image = "https://i.ibb.co/j5qD0gp/new-crop-top.png",
                             Price = 100,
@@ -334,7 +336,7 @@ namespace JUSTMOVE.Data.Migrations
                         {
                             Id = "2",
                             Brand = "Adidas",
-                            Category = "shorts",
+                            Category = "Shorts",
                             Gender = "male",
                             Image = "https://i.ibb.co/GTBzGt4/adidas-man-shorts.jpg",
                             Price = 200,
@@ -345,7 +347,7 @@ namespace JUSTMOVE.Data.Migrations
                         {
                             Id = "3",
                             Brand = "Nike",
-                            Category = "trousers",
+                            Category = "Trousers",
                             Gender = "woman",
                             Image = "https://i.ibb.co/zVTD7HK/nike-trousers.jpg",
                             Price = 250,
