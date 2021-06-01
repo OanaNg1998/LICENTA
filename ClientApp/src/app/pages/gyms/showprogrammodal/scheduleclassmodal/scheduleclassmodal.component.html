@@ -1,0 +1,23 @@
+<div bsModal class=" row modal fade propertiesModal" #scheduleClassModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="scheduleClassModal"
+     aria-hidden="true">
+  
+  
+  <form #scheduleForm="ngForm" (ngSubmit)="getValues(scheduleForm.value)">
+    <br />
+    <h1 class="title">{{title}} Class</h1>
+    <br />
+    <br />
+    <br />
+    <input class=" form-control input" type="text" ngModel name="emailAddress" placeholder="enter the first email" style="width:40%;" />
+    <br />
+    <br />
+    <input type="text" class=" form-control input" ngModel name="Last Name " placeholder="enter the last name" style="width:40%;" />
+    <br />
+    <br />
+    <input  id="numberFriends" type="number" class=" form-control input" ngModel name="numberFriends" placeholder="enter the number of persons" style="width:40%;"  />
+    <br />
+    <br />
+    <button class=" btn btn-fill btn-danger button "  (click)="sale(scheduleForm.value)">Make Appointment!</button>
+    <img src="https://i.ibb.co/LNmkdPG/ezgif-com-gif-maker-2.gif" class="gif" />
+  </form>
+</div>

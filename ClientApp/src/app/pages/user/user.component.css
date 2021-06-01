@@ -1,0 +1,43 @@
+.product {
+  padding: 40px 0;
+   margin-left: 30%;
+   margin-top:10%;
+}
+.box {
+  padding: 15px;
+  border: 5px solid #f75986;
+  border-radius:10px;
+}
+
+
+.qty_button {
+  background: #f75986;
+  border-radius: 50%;
+  font-size: 16px;
+  margin:0 8px;
+}
+.icon-style i{
+    color:white;
+}
+
+.rama{
+    padding-right: 10px;
+    margin-right: 10px;
+}
+.sortby {
+  border: 5px solid #f75986;
+  border-radius: 10px;
+}
+.filterIcon {
+  border: 5px solid #f75986;
+  border-radius: 10px;
+  margin-left: 1%;
+  color: #f75986;
+}
+.productMeasure {
+  border: 5px solid #f75986;
+  border-radius: 10px;
+  height:7%;
+  margin-top:7%;
+}
+

@@ -272,7 +272,7 @@ namespace JUSTMOVE.Data.Migrations
                             AccessFailedCount = 0,
                             AddressId = "2",
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "fd6ed4a3-ef67-4a56-b8b5-8d5659a82925",
+                            ConcurrencyStamp = "c9bf9694-9860-4d2e-8003-420f4216ce27",
                             EmailConfirmed = false,
                             FirstName = "Neagu",
                             Gender = "femeie",
@@ -280,8 +280,77 @@ namespace JUSTMOVE.Data.Migrations
                             LastName = "Oana",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a00f4137-24a2-47f7-9e34-3cf7aaa40046",
+                            SecurityStamp = "4d9c523d-c019-4bb6-a8fd-9f0fbf019a93",
                             TwoFactorEnabled = false
+                        });
+                });
+
+            modelBuilder.Entity("JUSTMOVE.Models.Equipment", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Equipment");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Brand = "Nike",
+                            Category = "tshirt",
+                            Gender = "woman",
+                            Image = "https://i.ibb.co/j5qD0gp/new-crop-top.png",
+                            Price = 100,
+                            ProductName = "Nike Crop Top",
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Brand = "Adidas",
+                            Category = "shorts",
+                            Gender = "male",
+                            Image = "https://i.ibb.co/GTBzGt4/adidas-man-shorts.jpg",
+                            Price = 200,
+                            ProductName = "Adidas Man Shorts",
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = "3",
+                            Brand = "Nike",
+                            Category = "trousers",
+                            Gender = "woman",
+                            Image = "https://i.ibb.co/zVTD7HK/nike-trousers.jpg",
+                            Price = 250,
+                            ProductName = "Nike Running Trousers",
+                            Quantity = 1
                         });
                 });
 

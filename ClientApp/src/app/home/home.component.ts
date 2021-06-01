@@ -46,7 +46,7 @@ export class HomeComponent  {
   ngOnInit() {
     this.api['getAddresses']().subscribe((data: Address[]) => {
       this.addresses = data;
-      console.log(data);
+    //  console.log(data);
 
 
     })

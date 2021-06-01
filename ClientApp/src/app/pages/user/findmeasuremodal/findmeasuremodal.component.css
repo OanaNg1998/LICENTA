@@ -1,0 +1,74 @@
+.customModal {
+  background-color: white;
+  border-radius: 10px;
+  max-height: 100vh;
+  max-width: 70vw;
+  margin-left: 20vw;
+  margin-top: 13.5vh;
+}
+#image{
+    height:100%;
+    width:50%;
+    margin-left:50%;
+    margin-top:-65%;
+}
+.title {
+  margin-left: 4%;
+  color: black;
+  font-size: 300%;
+  font-family: Brush Script MT;
+}
+.numberCircle {
+  border-radius: 90%;
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+  padding: 4px;
+  background: #2BDDE7;
+  border: 2px solid #3EDEFC;
+  color: white;
+  text-align: center;
+  font: 24px Arial, sans-serif;
+  margin-left:0.5%;
+}
+#input1 {
+  display: inline-block;
+  margin-left:2%;
+  margin-top:-0.2%;
+
+}
+#input2 {
+  display: inline-block;
+  margin-left: 2%;
+  margin-top: -0.2%;
+
+}
+#input3 {
+  display: inline-block;
+  margin-left: 2%;
+  margin-top: -0.2%;
+
+}
+#input4 {
+  display: inline-block;
+  margin-left: 2%;
+  margin-top: -0.2%;
+  
+}
+#input5 {
+  display: inline-block;
+  margin-left: 2%;
+  margin-top: -0.2%;
+ 
+}
+.form-check {
+  margin-left: 5%;
+  display: inline-block;
+  
+  
+}
+#paragraph{
+    color:black;
+    margin-left:2.5%;
+    
+}

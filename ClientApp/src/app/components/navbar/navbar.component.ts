@@ -3,6 +3,9 @@ import { ROUTES } from "../sidebar/sidebar.component";
 import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { UserComponent } from "../../pages/user/user.component";
+
+
 
 @Component({
   selector: "app-navbar",
@@ -19,6 +22,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public isCollapsed = true;
 
   closeResult: string;
+ 
+ 
 
   constructor(
     location: Location,
@@ -41,7 +46,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   };
   ngOnInit() {
-    window.addEventListener("resize", this.updateColor);
+    
+  /*  window.addEventListener("resize", this.updateColor);
     this.listTitles = ROUTES.filter(listTitle => listTitle);
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName("navbar-toggler")[0];
@@ -52,10 +58,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
         $layer.remove();
         this.mobile_menu_visible = 0;
       }
-    });
+    });*/
   }
+ 
 
-  collapse() {
+ /* collapse() {
     this.isCollapsed = !this.isCollapsed;
     const navbar = document.getElementsByTagName("nav")[0];
     if (!this.isCollapsed) {
@@ -189,7 +196,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     } else {
       return `with: ${reason}`;
     }
-  }
+  }*/
   ngOnDestroy() {
     window.removeEventListener("resize", this.updateColor);
   }

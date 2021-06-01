@@ -34,9 +34,25 @@ namespace JUSTMOVE.Services.AddressService
         {
             ICollection<Address> cityAddressIds = new List<Address>();
             var cityAddress = _addressRepository.GetAll();
+            ICollection<String> Cities = new List<String>();
+            int ok = 0;
+            
             foreach (Address cityaddress in cityAddress)
             {
-                cityAddressIds.Add(cityaddress);
+
+                foreach (String city in Cities)
+                {
+                    if (cityaddress.City == city) ok = 1;
+                }
+                if (ok == 0)
+                {
+                    cityAddressIds.Add(cityaddress);
+                    Cities.Add(cityaddress.City);
+                }
+                ok = 0;
+               
+               
+             
             }
             return cityAddressIds;
 

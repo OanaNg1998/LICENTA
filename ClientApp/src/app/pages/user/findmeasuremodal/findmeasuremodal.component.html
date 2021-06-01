@@ -1,0 +1,45 @@
+<div bsModal class=" row modal fade customModal" #findMeasureModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="findMeasureModal"
+     aria-hidden="true" >
+  
+  <form #scheduleForm="ngForm" (ngSubmit)="getValues(scheduleForm.value)" >
+    <br />
+    <h1 class="title">Find your measure</h1>
+    <p id="paragraph">Gender</p>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="radio" ngModel name="gender" id="gender" value="Male" checked>
+        <label class="form-check-label" for="gender">Male</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" ngModel name="gender" id="gender" value="Female">
+        <label class="form-check-label" for="gender">Female</label>
+      </div>
+    </div>
+    <br />
+    <div class="numberCircle">1</div>
+    <input class=" form-control input" type="number" ngModel name="height" id="input1" placeholder="enter your height in cm" style="width:40%;" />
+    <br />
+    <br />
+    <div class="numberCircle">2</div>
+    <input type="number" class=" form-control input" ngModel name="chest" id="input2" placeholder="enter you chest measure in cm" style="width:40%;" />
+    <br />
+    <br />
+    <div class="numberCircle">3</div>
+    <input type="number" class=" form-control input" ngModel name="whaist" id="input3" placeholder="enter you whaist measure in cm" style="width:40%;" />
+    <br />
+    <br />
+    <div class="numberCircle">3</div>
+    <input type="number"class=" form-control input" ngModel name="hips" id="input4" placeholder="enter you hips measure in cm" style="width:40%;" />
+    <br />
+    <br />
+    <div class="numberCircle">5</div>
+    <input type="number" class=" form-control input" ngModel name="leg" id="input5" placeholder="enter you leg width in cm" style="width:40%;" />
+    <br />
+    <br />
+
+    <button class=" btn btn-fill btn-danger button " style="margin-top:-8%;margin-left:65%;" (click)="findout(scheduleForm.value)">Find Measure</button>
+    <img src="https://i.ibb.co/Lr8pf1k/bodymeasurements.jpg" id="image" />
+
+  </form>
+</div>
+

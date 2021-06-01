@@ -165,32 +165,116 @@
     </div>
   </div>
 -->
-<div class=" row">
-  <div class=" col-md-12">
-    <div class=" card">
-      <div class=" card-header">
-        <h4 class=" card-title">Simple Table</h4>
-      </div>
-      <div class=" card-body">
-        <div class=" table-responsive">
-          <table class=" table tablesorter" id="">
-            <thead class=" text-primary">
-              <tr>
-                <th>Class Name</th>
-                <th>Hour</th>
-                <th>Button</th>
 
-              </tr>
-            </thead>
-            <tbody>
-              <tr><!--*ngFor="let class of classess;"-->
-                <!--<td>{{class.name}}</td>
-                <td>{{class.starthour}}{{class.endhour}} </td>
-                <td><button class="btn btn-outline-light" >Make subscription</button></td>-->
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<button class=" btn btn-fill btn-danger button " (click)="showMeasure()" style="position: absolute; margin-left: 50%; margin-top: 6%;">Find your measures</button>
+<select style="margin-top:7%;margin-left:20%;" (change)="selectChangeHandler($event)" class="sortby">
+  <option value="order">Order By</option>
+  <option value="cresc" class="option">Lowest Price</option>
+  <option value="desc" class="option">Highest Price</option>
+</select>
+<button type="button"  class="filterIcon" (click)="showFilter()"><i class="fas fa-sort"></i></button>
+
+<section class="product" *ngIf=" !(isfilteredProducts)">
+  <div class="container text-center">
+    <div class="row" style="height:500px;width:5px;">
+      <div style="display:flex;">
+        <ng-container class="rama" *ngFor="let product of products">
+          <div class="box">
+            <div class="product_image">
+              <img src={{product.image}} alt="image" />
+            </div>
+            <div class="icon-style">
+              <h4>RON</h4>
+              <button type="button" class="qty_button" (click)="inc(product.id)"><i class="fas fa-plus"></i></button>
+              <span style="color:white">{{getProductQuantity(product.id)}}</span>
+              <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>
+
+              <select class="productMeasure"  (change)="chooseProductMeasure($event,product)" *ngIf="product.category=='Shorts' || product.category=='T-shirt' || product.category=='Trousers'">
+                <option value="XS">XS</option>
+                <option value="S" class="option">S</option>
+                <option value="M" class="option">M</option>
+                <option value="L" class="option">L</option>
+                <option value="XL" class="option">XL</option>
+                <option value="XXL" class="option">XXL</option>
+              </select>
+             
+              <select class="productMeasure" *ngIf="product.category=='Sneakers'">
+               
+                <option value="order">36</option>
+                <option value="order">37</option>
+                <option value="order">38</option>
+                <option value="order">39</option>
+                <option value="order">40</option>
+                <option value="order">41</option>
+                <option value="order">42</option>
+
+              </select>
+
+
+              <button class=" btn btn-fill btn-danger button" style="margin-left:1%;margin-top:10%;" (click)="onSuccess('One item added to cart!',product)">Add to cart</button>
+
+            </div>
+
+          </div>
+          
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+
+
+
+
+        </ng-container>
+
       </div>
     </div>
+
   </div>
+</section>
+<section class="product" *ngIf=" isfilteredProducts">
+  <div class="container text-center">
+    <div class="row" style="height:500px;width:5px;">
+      <div style="display:flex;">
+        <ng-container class="rama" *ngFor="let product of filteredProducts">
+          <div class="box">
+            <div class="product_image">
+              <img src={{product.image}} alt="image" />
+            </div>
+            <div class="icon-style">
+              <h4>RON</h4>
+              <button type="button" class="qty_button" (click)="inc(product.id)"><i class="fas fa-plus"></i></button>
+              <span style="color:white">{{getProductQuantity(product.id)}}</span>
+              <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>
+
+              <button class=" btn btn-fill btn-danger button" style="margin-left:1%;margin-top:10%;" (click)="onSuccess('One item added to cart!',product)">Add to cart</button>
+
+            </div>
+
+          </div>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+
+
+
+
+        </ng-container>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<simple-notifications></simple-notifications>
+<app-findmeasuremodal #findMeasureModal></app-findmeasuremodal>
+<app-filtermodal #filterModal (change)="filterProduct($event)"></app-filtermodal>

@@ -1,0 +1,25 @@
+.propertiesModal {
+  background-color: white;
+  border-radius: 10px;
+  max-height: 100vh;
+  max-width: 70vw;
+  margin-left: 20vw;
+  margin-top: 13.5vh;
+}
+.gif{
+    margin-left:50%;
+    margin-top:-43%;
+}
+.input{
+    margin-left:10%;
+}
+.button {
+  margin-left: 17%;
+}
+.title {
+  margin-left: 6%;
+  color: black;
+  font-size: 400%;
+  font-family: Brush Script MT;
+}
+
