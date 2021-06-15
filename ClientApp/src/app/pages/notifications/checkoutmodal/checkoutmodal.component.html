@@ -1,0 +1,88 @@
+<div bsModal class=" row modal fade customModal" #checkoutModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="checkoutModal"
+     aria-hidden="true">
+  <h1 id="title_order1">Your order summary:</h1>
+  <div class=" content">
+    <div class=" row">
+      <div class=" col-md-12">
+        <div class=" card" id="table_order">
+
+          <div class=" card-body">
+            <div class=" table-responsive">
+              <table class=" table tablesorter" id="">
+                <thead class=" text-primary">
+                  <tr>
+                    <th>Product</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cartProduct of cartProducts;let i=index">
+                    <td> <img src={{cartProduct.image}} /></td>
+                    <td> {{cartProduct.productName}} </td>
+                    <td>{{cartProduct.quantity}}</td>
+                    <td>{{cartProduct.price}} RON</td>
+
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="title_order2">Complete your contact and delivery information:</h2>
+
+
+      <form #orderForm="ngForm" (ngSubmit)="getOrderValues(orderForm.value)" class="form_order">
+
+
+        <div>
+          <label>Email:</label>
+          <input class=" form-control input" type="text" ngModel name="email" placeholder="enter your email " style="width:120%;" />
+        </div>
+        <br />
+
+        <div>
+          <label>Complete name:</label>
+          <input type="text" class=" form-control input" ngModel name="name" placeholder="enter your name" style="width:120%;" />
+        </div>
+        <br />
+
+        <div>
+          <label>Phone number:</label>
+          <input type="text" class=" form-control input" ngModel name="phonenumber" placeholder="enter your phone number" style="width:120%;" />
+        </div>
+        <br />
+
+        <div>
+          <label>Delivery address:</label>
+          <input type="text" class=" form-control input" ngModel name="deliveryaddress" placeholder="enter the delivery address" style="width:120%;" />
+        </div>
+        <br />
+
+        <div>
+          <label>City:</label>
+          <input type="text" class=" form-control input" ngModel name="city" placeholder="enter the city" style="width:120%;" />
+        </div>
+        <br />
+
+        <div>
+          <label>County:</label>
+          <input type="text" class=" form-control input" ngModel name="county" placeholder="enter the county" style="width:120%;" />
+        </div>
+        <br />
+
+        <button id="order_btn" class=" btn btn-fill btn-danger button " (click)="makeOrder(orderForm.value)">Order</button>
+      </form>
+      
+        <img  id="check_image" src="https://i.ibb.co/X37Hr8y/check-order-page.gif" />
+      
+      <h4 id="courier_text">Your order will be delivered with fast courier in 2-3 working days - 10 RON</h4>
+      <button id="qrcode_sale" class=" btn btn-fill btn-danger button " (click)="showScanner()">Scan your SALE CODE</button>
+    </div>
+    <app-scanqrcodemodal #scanqrcodeModal></app-scanqrcodemodal>
+

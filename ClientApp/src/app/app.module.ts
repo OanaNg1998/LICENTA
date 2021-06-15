@@ -23,6 +23,9 @@ import { AuthorizeGuard } from "../api-authorization/authorize.guard";
 import { AuthLayoutModule } from "./layouts/auth-layout/auth-layout.module";
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { Ng5SliderModule } from 'ng5-slider';
+import { ScanqrcodemodalComponent } from './pages/notifications/checkoutmodal/scanqrcodemodal/scanqrcodemodal.component';
+import { NutritionfiltermodalComponent } from './pages/icons/nutritionfiltermodal/nutritionfiltermodal.component';
+
 
 
 

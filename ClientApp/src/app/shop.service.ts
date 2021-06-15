@@ -19,6 +19,9 @@ export class ShopService {
   getProducts() {
     return this.http.get(this.baseUrl + '/Equipment', { headers: this.header });
   }
+  getNutritionProducts() {
+    return this.http.get(this.baseUrl + '/NutritionProduct', { headers: this.header });
+  }
   orderDescByPrice() {
     return this.http.get(this.baseUrl + '/Equipment/OrderDescByPrice', { headers: this.header });
   }

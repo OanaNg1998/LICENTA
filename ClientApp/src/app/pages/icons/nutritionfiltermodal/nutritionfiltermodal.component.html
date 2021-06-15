@@ -1,0 +1,44 @@
+<div bsModal class=" row modal fade customModal" #nutritionfilterModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="nutritionfilterModal"
+     aria-hidden="true">
+
+  <form #filterForm="ngForm">
+    <!-- <h5 style="    color: black; margin-left: 5%; margin-top: 5%;">Gender:</h5>
+
+    <div class="form-group">
+      <div class="form-check" style="    margin-left: 10%;color: deepskyblue;">
+        <input class="form-check-input" type="radio" ngModel name="gender" id="gender" value="male" checked>
+        <label class="form-check-label" for="gender">Male</label>
+      </div>
+      <div class="form-check" style="    margin-left: 10%;color: #f75986;">
+        <input class="form-check-input" type="radio" ngModel name="gender" id="gender" value="woman">
+        <label class="form-check-label" for="gender">Female</label>
+      </div>
+    </div>
+    -->
+    <h5 style="color:black;margin-left:5%;margin-top:5%;">Category:</h5>
+    <select class="categoryFilter" ngModel name="category" >
+      <option value="tshirt" class="option">Protein Bar</option>
+      <option value="shorts" class="option">Protein Powder</option>
+      <option value="trousers" class="option">Other Supliments</option>
+    </select>
+    <br />
+    <h5 style="color:black;margin-left:5%;margin-top:5%;">Price:</h5>
+    <br />
+    <br />
+    <ng5-slider [(value)]="value" [(highValue)]="highValue" [options]="options" style="width:60%; height:20%; margin-top:2%;margin-left:5%;" ngModel name="price"></ng5-slider>
+    <br />
+    <br />
+    <h5 style="color:black;margin-left:5%;margin-top:5%;">Brand:</h5>
+    <select id="categoryBrandFilter" ngModel name="measure" >
+    </select>
+
+   
+   
+    <br />
+    <br />
+    <button class=" btn btn-fill btn-danger button " style="margin-left:5%;">Filter</button>
+
+  </form>
+  </div>
+
+

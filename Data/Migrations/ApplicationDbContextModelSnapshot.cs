@@ -272,7 +272,7 @@ namespace JUSTMOVE.Data.Migrations
                             AccessFailedCount = 0,
                             AddressId = "2",
                             BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            ConcurrencyStamp = "c9bf9694-9860-4d2e-8003-420f4216ce27",
+                            ConcurrencyStamp = "49f74d8f-afde-4073-a662-93935577e0f0",
                             EmailConfirmed = false,
                             FirstName = "Neagu",
                             Gender = "femeie",
@@ -280,7 +280,7 @@ namespace JUSTMOVE.Data.Migrations
                             LastName = "Oana",
                             LockoutEnabled = false,
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "4d9c523d-c019-4bb6-a8fd-9f0fbf019a93",
+                            SecurityStamp = "3248ac7d-090d-42f9-a05b-b8f4970f08ed",
                             TwoFactorEnabled = false
                         });
                 });
@@ -305,6 +305,9 @@ namespace JUSTMOVE.Data.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("OrderHistoryId")
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<int>("Price")
                         .HasColumnType("int");
 
@@ -315,6 +318,8 @@ namespace JUSTMOVE.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("OrderHistoryId");
 
                     b.ToTable("Equipment");
 
@@ -534,6 +539,114 @@ namespace JUSTMOVE.Data.Migrations
                     b.HasIndex("TrainingId");
 
                     b.ToTable("InstructorTrainings");
+                });
+
+            modelBuilder.Entity("JUSTMOVE.Models.NutritionProduct", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Brand")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Category")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderHistoryId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ProductName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Weight")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderHistoryId");
+
+                    b.ToTable("NutritionProduct");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1",
+                            Brand = "Nutrend",
+                            Category = "protein bar",
+                            Image = "https://i.ibb.co/CzWs55t/protein-bar1.png",
+                            Price = 10,
+                            ProductName = "Nutrend Protein Bar",
+                            Quantity = 1,
+                            Weight = "85g"
+                        },
+                        new
+                        {
+                            Id = "2",
+                            Brand = "Pro Nutrition",
+                            Category = "protein pouder",
+                            Image = "https://i.ibb.co/vQQ71dX/protein-powder.jpg",
+                            Price = 150,
+                            ProductName = "Whey Protein Powder",
+                            Quantity = 1,
+                            Weight = "500g"
+                        },
+                        new
+                        {
+                            Id = "3",
+                            Brand = "KIND",
+                            Category = "protein bar",
+                            Image = "https://i.ibb.co/swNz3r7/protein-bar2.png",
+                            Price = 11,
+                            ProductName = "KIND Protein Bar",
+                            Quantity = 1,
+                            Weight = "60g"
+                        });
+                });
+
+            modelBuilder.Entity("JUSTMOVE.Models.OrderHistory", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CompleteName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DeliveryAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EmailAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EquipmentId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OrderId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductQuantity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TotalPrice")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("OrderHistory");
                 });
 
             modelBuilder.Entity("JUSTMOVE.Models.Subscription", b =>
@@ -761,6 +874,13 @@ namespace JUSTMOVE.Data.Migrations
                         .HasForeignKey("AddressId");
                 });
 
+            modelBuilder.Entity("JUSTMOVE.Models.Equipment", b =>
+                {
+                    b.HasOne("JUSTMOVE.Models.OrderHistory", null)
+                        .WithMany("Equipment")
+                        .HasForeignKey("OrderHistoryId");
+                });
+
             modelBuilder.Entity("JUSTMOVE.Models.Gym", b =>
                 {
                     b.HasOne("JUSTMOVE.Models.Address", "Address")
@@ -799,6 +919,13 @@ namespace JUSTMOVE.Data.Migrations
                     b.HasOne("JUSTMOVE.Models.Training", "Training")
                         .WithMany("InstructorTrainings")
                         .HasForeignKey("TrainingId");
+                });
+
+            modelBuilder.Entity("JUSTMOVE.Models.NutritionProduct", b =>
+                {
+                    b.HasOne("JUSTMOVE.Models.OrderHistory", null)
+                        .WithMany("NutritionProduct")
+                        .HasForeignKey("OrderHistoryId");
                 });
 
             modelBuilder.Entity("JUSTMOVE.Models.Subscription", b =>

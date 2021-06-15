@@ -31,6 +31,10 @@ using JUSTMOVE.Services.GymTrainingService;
 using JUSTMOVE.Repositories.TrainingRepository;
 using JUSTMOVE.Repositories.EquipmentRepository;
 using JUSTMOVE.Services.EquipmentService;
+using JUSTMOVE.Repositories.OrderHistoryRepository;
+using JUSTMOVE.Services.OrderHistoryService;
+using JUSTMOVE.Repositories.NutritionProductRepository;
+using JUSTMOVE.Services.NutritionProfuctService;
 
 namespace JUSTMOVE
 {
@@ -87,6 +91,10 @@ namespace JUSTMOVE
             services.AddTransient<ITrainingRepository, TrainingRepository>();
             services.AddTransient<IEquipmentRepository, EquipmentRepository>();
             services.AddTransient<IEquipmentService, EquipmentService>();
+            services.AddTransient<IOrderHistoryRepository, OrderHistoryRepository>();
+            services.AddTransient<IOrderHistoryService, OrderHistoryService>();
+            services.AddTransient<INutritionProductRepository, NutritionProductRepository>();
+            services.AddTransient<INutritionProductService, NutritionProductService>();
 
 
             services.Configure<IdentityOptions>(options =>

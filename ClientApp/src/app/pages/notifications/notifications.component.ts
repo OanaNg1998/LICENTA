@@ -1,9 +1,11 @@
+import { ViewChild } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from "../../cart.service";
 import { Equipment } from "../../models/equipment";
 import { ShopService } from "../../shop.service";
 import { UserComponent } from "../user/user.component";
+import { CheckoutmodalComponent } from "./checkoutmodal/checkoutmodal.component";
 
 @Component({
   selector: "app-notifications",
@@ -13,6 +15,7 @@ import { UserComponent } from "../user/user.component";
 export class NotificationsComponent implements OnInit {
 
   cartContent: Equipment[] = [];
+  @ViewChild('checkoutModal', { static: false }) checkoutModal: CheckoutmodalComponent;
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
@@ -24,6 +27,11 @@ export class NotificationsComponent implements OnInit {
   }
   delete(id: number) {
     this.cartContent.splice(id, 1);
+  }
+
+
+  showFinalOrder() {
+    this.checkoutModal.initialize(this.cartContent);
   }
  
 

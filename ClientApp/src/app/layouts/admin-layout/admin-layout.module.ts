@@ -30,6 +30,10 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FiltermodalComponent } from "../../pages/user/filtermodal/filtermodal.component";
 import { Ng5SliderModule } from 'ng5-slider';
+import { CheckoutmodalComponent } from "../../pages/notifications/checkoutmodal/checkoutmodal.component";
+import { ScanqrcodemodalComponent } from "../../pages/notifications/checkoutmodal/scanqrcodemodal/scanqrcodemodal.component";
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { NutritionfiltermodalComponent } from "../../pages/icons/nutritionfiltermodal/nutritionfiltermodal.component";
 
 
 
@@ -51,6 +55,7 @@ import { Ng5SliderModule } from 'ng5-slider';
     SimpleNotificationsModule.forRoot(),
     BrowserAnimationsModule,
     Ng5SliderModule,
+    ZXingScannerModule,
    
     
    
@@ -73,7 +78,10 @@ import { Ng5SliderModule } from 'ng5-slider';
     ShowprogrammodalComponent,
     ScheduleclassmodalComponent,
     FindmeasuremodalComponent,
-    FiltermodalComponent
+    FiltermodalComponent,
+    CheckoutmodalComponent,
+    ScanqrcodemodalComponent,
+    NutritionfiltermodalComponent,
   
 
     
