@@ -27,6 +27,10 @@ namespace JUSTMOVE.Data
         public DbSet<Training> Trainings { get; set; }
         public DbSet<UserSubscription> UserSubscriptions { get; set; }
         public DbSet<Equipment> Equipment { get; set; }
+        public DbSet<OrderHistory> OrderHistory { get; set; }
+
+        public DbSet<NutritionProduct> NutritionProduct { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -56,6 +60,11 @@ namespace JUSTMOVE.Data
             modelBuilder.Entity<Equipment>().HasData(new Equipment { Id = "1", ProductName = "Nike Crop Top", Category = "tshirt", Price = 100, Image= "https://i.ibb.co/j5qD0gp/new-crop-top.png",Gender="woman",Quantity=1,Brand="Nike"});
             modelBuilder.Entity<Equipment>().HasData(new Equipment { Id = "2", ProductName = "Adidas Man Shorts", Category = "shorts", Price = 200, Image = "https://i.ibb.co/GTBzGt4/adidas-man-shorts.jpg",Gender="male", Quantity = 1,Brand="Adidas" });
             modelBuilder.Entity<Equipment>().HasData(new Equipment { Id = "3", ProductName = "Nike Running Trousers", Category = "trousers", Price = 250, Image = "https://i.ibb.co/zVTD7HK/nike-trousers.jpg", Gender = "woman", Quantity = 1 ,Brand="Nike"});
+
+            modelBuilder.Entity<NutritionProduct>().ToTable("NutritionProduct");
+            modelBuilder.Entity<NutritionProduct>().HasData(new NutritionProduct { Id = "1", ProductName = "Nutrend Protein Bar", Category = "protein bar", Price = 10, Image = "https://i.ibb.co/CzWs55t/protein-bar1.png", Weight = "85g", Quantity = 1, Brand = "Nutrend" });
+            modelBuilder.Entity<NutritionProduct>().HasData(new NutritionProduct { Id = "2", ProductName = "Whey Protein Powder", Category = "protein pouder", Price = 150, Image = "https://i.ibb.co/vQQ71dX/protein-powder.jpg", Weight = "500g", Quantity = 1, Brand = "Pro Nutrition" });
+            modelBuilder.Entity<NutritionProduct>().HasData(new NutritionProduct { Id = "3", ProductName = "KIND Protein Bar", Category = "protein bar", Price = 11, Image = "https://i.ibb.co/swNz3r7/protein-bar2.png", Weight = "60g", Quantity = 1, Brand = "KIND" });
 
         }
 

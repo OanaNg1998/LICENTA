@@ -54,7 +54,7 @@ export class ScheduleclassmodalComponent implements OnInit {
     }
     else {
       Swal.fire({
-        title: '25 % OFF VOUCHER',
+        title: 'THANK YOU!',
         text: 'Your Subscription has been sent!',
         icon: 'warning',
         showCancelButton: false,

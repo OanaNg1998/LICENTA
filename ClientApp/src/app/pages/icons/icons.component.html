@@ -1,5 +1,4 @@
-
-<div class=" content">
+<!--<div class=" content">
   <div class=" row">
     <div class=" col-md-12">
       <div class=" card">
@@ -818,3 +817,56 @@
     </div>
   </div>
 </div>
+-->
+<select style="margin-top:7%;margin-left:20%;"  class="sortby">
+  <option value="order">Order By</option>
+  <option value="cresc" class="option">Lowest Price</option>
+  <option value="desc" class="option">Highest Price</option>
+</select>
+<button type="button" class="filterIcon" (click)="showNutritionFilter()"><i class="fas fa-sort"></i></button>
+
+<section class="product"  id="product_box">
+  <div class="container text-center">
+    <div class="row" style="height:500px;width:5px;">
+      <div style="display:flex;">
+        <ng-container class="rama" *ngFor="let product of nutritionproducts">
+          <div class="box">
+            <div class="product_image">
+              <img src={{product.image}} alt="image" />
+            </div>
+            <div class="icon-style">
+              <h4 style="color:white;">{{product.productName}}</h4>
+              <h4>{{product.price}} RON</h4>
+              <button type="button" class="qty_button"><i class="fas fa-plus"></i></button>
+              <span style="color:white">0</span>
+              <button type="button" class="qty_button"><i class="fas fa-minus"></i></button>
+
+
+
+
+              <button class=" btn btn-fill btn-danger button" style="margin-left:1%;margin-top:10%;">Add to cart</button>
+
+            </div>
+
+          </div>
+
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+
+
+
+
+        </ng-container>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<app-nutritionfiltermodal #nutritionfilterModal></app-nutritionfiltermodal>

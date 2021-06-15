@@ -174,7 +174,7 @@
 </select>
 <button type="button"  class="filterIcon" (click)="showFilter()"><i class="fas fa-sort"></i></button>
 
-<section class="product" *ngIf=" !(isfilteredProducts)">
+<section class="product" *ngIf=" !(isfilteredProducts)" id="product_box1">
   <div class="container text-center">
     <div class="row" style="height:500px;width:5px;">
       <div style="display:flex;">
@@ -184,12 +184,13 @@
               <img src={{product.image}} alt="image" />
             </div>
             <div class="icon-style">
-              <h4>RON</h4>
+              <h4>{{product.productName}}</h4>
+              <h4>{{product.price}} RON</h4>
               <button type="button" class="qty_button" (click)="inc(product.id)"><i class="fas fa-plus"></i></button>
               <span style="color:white">{{getProductQuantity(product.id)}}</span>
               <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>
 
-              <select class="productMeasure"  (change)="chooseProductMeasure($event,product)" *ngIf="product.category=='Shorts' || product.category=='T-shirt' || product.category=='Trousers'">
+              <select class="productMeasure" (change)="chooseProductMeasure($event,product)" *ngIf="product.category=='Shorts' || product.category=='T-shirt' || product.category=='Trousers'">
                 <option value="XS">XS</option>
                 <option value="S" class="option">S</option>
                 <option value="M" class="option">M</option>
@@ -197,9 +198,9 @@
                 <option value="XL" class="option">XL</option>
                 <option value="XXL" class="option">XXL</option>
               </select>
-             
+
               <select class="productMeasure" *ngIf="product.category=='Sneakers'">
-               
+
                 <option value="order">36</option>
                 <option value="order">37</option>
                 <option value="order">38</option>
@@ -236,7 +237,7 @@
 
   </div>
 </section>
-<section class="product" *ngIf=" isfilteredProducts">
+<section class="product" *ngIf=" isfilteredProducts" id="product_box2">
   <div class="container text-center">
     <div class="row" style="height:500px;width:5px;">
       <div style="display:flex;">
@@ -246,7 +247,8 @@
               <img src={{product.image}} alt="image" />
             </div>
             <div class="icon-style">
-              <h4>RON</h4>
+              <h4>{{product.productName}}</h4>
+              <h4>{{product.Price}}RON</h4>
               <button type="button" class="qty_button" (click)="inc(product.id)"><i class="fas fa-plus"></i></button>
               <span style="color:white">{{getProductQuantity(product.id)}}</span>
               <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>

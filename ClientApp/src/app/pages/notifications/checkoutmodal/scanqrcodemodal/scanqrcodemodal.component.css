@@ -1,0 +1,29 @@
+.customModal {
+  background-color: white;
+  border-radius: 10px;
+  max-height: 85vh;
+  max-width: 60vw;
+  margin-left: 30vw;
+  margin-top: 12.5vh;
+  border: 8px solid #f75986;
+}
+#scanner_qrcode{
+    height:35%;
+    width:40%;
+    margin-left:10%;
+    margin-top:8%;
+}
+#title_qrcode {
+  color: black;
+  margin-left:10%;
+  margin-top:5%;
+  font-family: Brush Script MT;
+}
+#image_qrcode{
+    margin-left:45%;
+    margin-top:-27%;
+}
+#tryagain_btn{
+    margin-left:15%;
+    margin-top:3%;
+}

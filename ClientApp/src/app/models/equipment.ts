@@ -1,12 +1,12 @@
 export class Equipment {
-  Id: string;
+  id: string;
   ProductName: string;
   Category: string;
   Price: number;
   Description: string;
   Image: string;
   Gender: string;
-  Quantity: number;
+  quantity: number;
   Measure: string;
 
  /* constructor(Id?: string, ProductName?: string, Category?: string, Price?: number, Description?: string,Image?: string,Gender?:string,Quantity?: number) {

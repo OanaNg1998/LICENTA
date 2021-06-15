@@ -15,13 +15,7 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-chart-pie-36",
     class: ""
   },
-  {
-    path: "icons",
-    title: "Icons",
-    rtlTitle: "الرموز",
-    icon: "icon-atom",
-    class: ""
-  },*/
+ */
   {
     path: "maps",
     title: "Gyms",
@@ -32,7 +26,7 @@ export const ROUTES: RouteInfo[] = [
   
   {
     path: "notifications",
-    title: "Notifications",
+    title: "Your Shopping Cart",
     rtlTitle: "إخطارات",
     icon: "icon-bell-55",
     class: ""
@@ -40,9 +34,16 @@ export const ROUTES: RouteInfo[] = [
 
   {
     path: "user",
-    title: "My Profile",
+    title: "Equipments Shop",
     rtlTitle: "ملف تعريفي للمستخدم",
     icon: "icon-single-02",
+    class: ""
+  },
+   {
+    path: "icons",
+    title: "Nutrition Shop",
+    rtlTitle: "الرموز",
+    icon: "icon-atom",
     class: ""
   }/*,
   

@@ -1,0 +1,64 @@
+.customModal {
+  background-color: white;
+  border-radius: 10px;
+  max-height: 80vh;
+  max-width: 80vw;
+  margin-left: 20vw;
+  margin-top: 13.5vh;
+}
+.quantity_button {
+  background: #f75986;
+  border-radius: 50%;
+  font-size: 16px;
+  margin: 0 8px;
+}
+
+  .quantity_button i {
+    color: white;
+  }
+#table_order {
+  margin-left: -15%;
+  border: 8px solid #f75986;
+  margin-top:-8%;
+}
+#title_order1 {
+  color: black;
+  text-align: center;
+  margin-top: 1%;
+  font-family: Brush Script MT;
+}
+#title_order2 {
+  color: black;
+  text-align: center;
+  margin-top: -2%;
+  font-family: Brush Script MT;
+}
+
+
+.form_order{
+    margin-top:5%;
+    margin-left:-58%;
+}
+#qrcode_sale {
+  margin-top:-6%;
+  margin-left:5%;
+  width:50%;
+  height:10%;
+}
+#check_image{
+    width:5%;
+    height:1%;
+    margin-left:-40%;
+    margin-top:76%;
+}
+#courier_text {
+  color: black;
+  font-family: Brush Script MT;
+  margin-top:77%;
+  margin-left:3%;
+}
+#order_btn {
+ margin-top:50%;
+ margin-left:285%;
+}
+
