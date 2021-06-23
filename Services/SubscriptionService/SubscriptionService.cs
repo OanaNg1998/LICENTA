@@ -1,4 +1,5 @@
 ﻿using JUSTMOVE.Models;
+using JUSTMOVE.Repositories.QRCode;
 using JUSTMOVE.Repositories.SubscriptionRepository;
 using JUSTMOVE.Services.EmailSender;
 using QRCoder;
@@ -16,11 +17,13 @@ namespace JUSTMOVE.Services.SubscriptionService
         private readonly ISubscriptionRepository _subscriptionRepository;
 
         private readonly IEmailSender _emailSender;
+        private readonly ISaleQRCodeRepository _qrCodeRepository;
 
-        public SubscriptionService(ISubscriptionRepository subscriptionRepository, IEmailSender emailSender)
+        public SubscriptionService(ISubscriptionRepository subscriptionRepository, IEmailSender emailSender,ISaleQRCodeRepository qrCodeRepository)
         {
             _subscriptionRepository = subscriptionRepository;
             _emailSender = emailSender;
+            _qrCodeRepository = qrCodeRepository;
 
         }
         public Subscription CreateSubscription(Subscription subscription)
@@ -38,7 +41,12 @@ namespace JUSTMOVE.Services.SubscriptionService
         }
         public async Task<string> GetQRCodeAsync( string emailAddress)
         {
-            var qrText = "maimuta";
+            // var qrText = "maimuta";
+            Random random = new Random();
+            const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var qrText =  new string(Enumerable.Repeat(chars, 10)
+      .Select(s => s[random.Next(s.Length)]).ToArray());
+           // Console.Write(qrText);
             QRCoder.QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrText, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
@@ -50,11 +58,21 @@ namespace JUSTMOVE.Services.SubscriptionService
                 byte[] byteArr = ms.ToArray();
                 string b64Txt = Convert.ToBase64String(byteArr);
                 string message;
-
+              
                 string hrefText = "data:image/png;base64," + b64Txt;
                 message = "<p><img src='" + hrefText + "'</p>";
+                //aici
+                SaleQRCode code = new SaleQRCode
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    QRText = qrText,
+                    Image = hrefText,
 
-               await _emailSender.SendEmailAsync(emailAddress/*"oana_neagu98@yahoo.com"*/, "Discount",
+                };
+                _qrCodeRepository.Create(code);
+                //aici
+
+                await _emailSender.SendEmailAsync(emailAddress/*"oana_neagu98@yahoo.com"*/, "Discount",
                        message);
                 return hrefText;
             }

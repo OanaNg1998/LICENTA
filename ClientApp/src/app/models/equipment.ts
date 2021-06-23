@@ -8,6 +8,7 @@ export class Equipment {
   Gender: string;
   quantity: number;
   Measure: string;
+  Brand: string;
 
  /* constructor(Id?: string, ProductName?: string, Category?: string, Price?: number, Description?: string,Image?: string,Gender?:string,Quantity?: number) {
     this.Id = Id;

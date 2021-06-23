@@ -45,6 +45,14 @@ namespace JUSTMOVE.Controllers
             //  var userId = "d79952bf-757b-42ec-9b0f-b11b136f5606";
             return _equipmentService.GetEquipmentOrderedCrescbyPrice();
         }
+        [HttpGet("GetBrands")]
+        public ICollection<Equipment> GetBrandsSearchbarFilter()
+        {
+            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // id of the logged in user
+            //  var userId = "d79952bf-757b-42ec-9b0f-b11b136f5606";
+            return _equipmentService.GetBrandsSearchBar();
+        }
+
 
     }
 }

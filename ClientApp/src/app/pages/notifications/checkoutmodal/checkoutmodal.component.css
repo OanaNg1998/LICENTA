@@ -41,7 +41,7 @@
 }
 #qrcode_sale {
   margin-top:-6%;
-  margin-left:5%;
+  margin-left:10%;
   width:50%;
   height:10%;
 }
@@ -58,7 +58,27 @@
   margin-left:3%;
 }
 #order_btn {
- margin-top:50%;
+ margin-top:150%;
  margin-left:285%;
 }
-
+#divider {
+  margin-top:-35%;
+  margin-left: 0%;
+  width: 80%;
+ 
+}
+#total_text {
+  color: black;
+  font-family: Brush Script MT;
+      font-size: 160%;
+}
+#total_price {
+  margin-left: 80%;
+  color: black;
+  font-family: Brush Script MT;
+  font-size: 130%;
+}
+.divide_line {
+  border: 5px solid #f75986;
+  border-radius: 10%;
+}

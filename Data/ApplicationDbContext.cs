@@ -30,6 +30,7 @@ namespace JUSTMOVE.Data
         public DbSet<OrderHistory> OrderHistory { get; set; }
 
         public DbSet<NutritionProduct> NutritionProduct { get; set; }
+        public DbSet<SaleQRCode> SaleQRCode { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

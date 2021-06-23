@@ -818,7 +818,7 @@
   </div>
 </div>
 -->
-<select style="margin-top:7%;margin-left:20%;"  class="sortby">
+<select style="margin-top:7%;margin-left:20%;"  class="sortby" (change)="selectChangeHandler($event)">
   <option value="order">Order By</option>
   <option value="cresc" class="option">Lowest Price</option>
   <option value="desc" class="option">Highest Price</option>
@@ -837,14 +837,14 @@
             <div class="icon-style">
               <h4 style="color:white;">{{product.productName}}</h4>
               <h4>{{product.price}} RON</h4>
-              <button type="button" class="qty_button"><i class="fas fa-plus"></i></button>
-              <span style="color:white">0</span>
-              <button type="button" class="qty_button"><i class="fas fa-minus"></i></button>
+              <button type="button" class="qty_button" (click)="inc(product.id)"><i class="fas fa-plus"></i></button>
+              <span style="color:white">{{getNProductQuantity(product.id)}}</span>
+              <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>
 
 
 
 
-              <button class=" btn btn-fill btn-danger button" style="margin-left:1%;margin-top:10%;">Add to cart</button>
+              <button class=" btn btn-fill btn-danger button" style="margin-left:1%;margin-top:10%;" (click)="onNSuccess('One item added to cart!',product)">Add to cart</button>
 
             </div>
 
@@ -869,4 +869,5 @@
 
   </div>
 </section>
+<simple-notifications></simple-notifications>
 <app-nutritionfiltermodal #nutritionfilterModal></app-nutritionfiltermodal>

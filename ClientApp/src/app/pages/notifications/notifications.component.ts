@@ -3,6 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from "../../cart.service";
 import { Equipment } from "../../models/equipment";
+import { ShopItems } from "../../models/shopItems";
 import { ShopService } from "../../shop.service";
 import { UserComponent } from "../user/user.component";
 import { CheckoutmodalComponent } from "./checkoutmodal/checkoutmodal.component";
@@ -14,24 +15,39 @@ import { CheckoutmodalComponent } from "./checkoutmodal/checkoutmodal.component"
 })
 export class NotificationsComponent implements OnInit {
 
-  cartContent: Equipment[] = [];
+  cartContent: ShopItems[] = [];
+  public static totalItems: any =0;
   @ViewChild('checkoutModal', { static: false }) checkoutModal: CheckoutmodalComponent;
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
-
-    this.cartContent = this.cartService.get();
-  //  console.log("am adaugat urm produse:"+this.cartContent);
-
+    console.log(this.cartService.get());
+    for (let i = 0; i < this.cartService.get().length; i++)
+      this.cartContent.push(this.cartService.get()[i]);
+    console.log(this.cartContent);
+    for (let j = 0; j < this.cartContent.length; j++)
+      // console.log(this.cartContent[j].Quantity);
+      NotificationsComponent.totalItems = NotificationsComponent.totalItems + this.cartContent[j].Quantity;
+    console.log(NotificationsComponent.totalItems);
+    
+   // this.cartContent = this.cartService.get();
+    //console.log("am adaugat urm produse:"+this.cartContent);
+    console.log(this.getTotalItems());
 
   }
   delete(id: number) {
     this.cartContent.splice(id, 1);
   }
+  public getTotalItems() {
+    return NotificationsComponent.totalItems;
+  }
 
 
   showFinalOrder() {
     this.checkoutModal.initialize(this.cartContent);
+   /* for (let j = 0; j > this.cartContent.length; j++)
+      NotificationsComponent.totalItems = NotificationsComponent.totalItems + this.cartContent[j].Quantity;
+    console.log(NotificationsComponent.totalItems);*/
   }
  
 

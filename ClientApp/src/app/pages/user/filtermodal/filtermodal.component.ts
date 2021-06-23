@@ -7,6 +7,7 @@ import { Equipment } from '../../../models/equipment';
 import { ShopService } from '../../../shop.service';
 import { Options } from 'ng5-slider';
 import { Filter } from '../../../models/filter';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-filtermodal',
@@ -18,25 +19,40 @@ export class FiltermodalComponent implements OnInit {
   @ViewChild('filterModal', { static: false }) modal: ModalDirective;
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
   filterProducts: Array<Equipment> = new Array<Equipment>();
+  filterBrandsProducts: Array<Equipment> = new Array<Equipment>();
   isTrousers: number=0;
   isTshirt: number = 0;
   isShorts: number = 0;
   isSneakers: number = 0;
   filterValue: Filter = new Filter();
   isFilter: number = 0;
+  selected: any;
 
 
-
+  keyword = 'brand';
+  
+  public data$: Observable<any[]>;
   constructor(private api1: ShopService) { }
 
+  selectEvent(item) {
+    this.selected = item.brand;
+    console.log(this.selected);
+
+  } 
   ngOnInit(): void {
     this.api1['getProducts']().subscribe((data: Equipment[]) => {
       this.filterProducts = data;
       // console.log(data);
     })
+    this.api1['getBrandsForSearchbarFilter']().subscribe((data: Equipment[]) => {
+      this.filterBrandsProducts = data;
+      // console.log(data);
+    })
 
    
   }
+
+  
   getValues(val) {
    // console.log(val);
    
@@ -46,6 +62,7 @@ export class FiltermodalComponent implements OnInit {
    // console.log(this.filterValue.Category);
     this.filterValue.Price = val.price;
     this.filterValue.Gender = val.gender;
+    this.filterValue.Brand = this.selected;
    // console.log(this.filterValue.Gender);
     this.isFilter = 1;
     this.change.emit('filtrat');
@@ -91,7 +108,7 @@ export class FiltermodalComponent implements OnInit {
   highValue: number = 60;
   options: Options = {
     floor: 0,
-    ceil: 100
+    ceil: 300
   };
   initialize(): void {
 

@@ -34,7 +34,8 @@ import { CheckoutmodalComponent } from "../../pages/notifications/checkoutmodal/
 import { ScanqrcodemodalComponent } from "../../pages/notifications/checkoutmodal/scanqrcodemodal/scanqrcodemodal.component";
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { NutritionfiltermodalComponent } from "../../pages/icons/nutritionfiltermodal/nutritionfiltermodal.component";
-
+import { AutocompleteLibModule } from "angular-ng-autocomplete";
+import { MatListModule } from '@angular/material/list';
 
 
 
@@ -56,6 +57,8 @@ import { NutritionfiltermodalComponent } from "../../pages/icons/nutritionfilter
     BrowserAnimationsModule,
     Ng5SliderModule,
     ZXingScannerModule,
+    AutocompleteLibModule,
+    MatListModule ,
    
     
    
@@ -65,7 +68,7 @@ import { NutritionfiltermodalComponent } from "../../pages/icons/nutritionfilter
 
   ],
   providers:
-    [{ provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }, HomeComponent],
+    [{ provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true }, HomeComponent,NotificationsComponent],
   declarations: [
    
     UserComponent,

@@ -6,7 +6,9 @@ import { CartService } from '../../../cart.service';
 import { Equipment } from '../../../models/equipment';
 import { OrderData } from '../../../models/orderData';
 import { OrderProduct } from '../../../models/OrderProduct';
+import { ShopItems } from '../../../models/shopItems';
 import { ScanqrcodemodalComponent } from './scanqrcodemodal/scanqrcodemodal.component';
+
 
 @Component({
   selector: 'app-checkoutmodal',
@@ -18,8 +20,9 @@ export class CheckoutmodalComponent implements OnInit {
   @ViewChild('checkoutModal', { static: false }) modal: ModalDirective;
   @ViewChild('scanqrcodeModal', { static: false }) scanqrcodeModal: ScanqrcodemodalComponent;
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
-  cartProducts: Equipment[] = [];
+  cartProducts: ShopItems[] = [];
   data: OrderData = new OrderData();
+  totalPrice: any = 10 ;
 
   constructor(private service: CartService) { }
 
@@ -41,27 +44,39 @@ export class CheckoutmodalComponent implements OnInit {
     console.log(this.data.Products);
     for (let i = 0; i < this.cartProducts.length; i++) {
       console.log("am intrat in for");
-      this.data.Products[i] = new OrderProduct(this.cartProducts[i].id, this.cartProducts[i].quantity, this.cartProducts[i].ProductName);
+      this.data.Products[i] = new OrderProduct(this.cartProducts[i].Id, this.cartProducts[i].Quantity, this.cartProducts[i].Name);
       
     //  this.data.Products[i].Quantity = this.cartProducts[i].quantity;
      // console.log(this.cartProducts[i].id);
       //console.log(this.cartProducts[i].quantity);
 
     }
+   
+
     console.log(this.data);
 
 
     this.service.postCreateOrder(this.data).subscribe((data: any) => { });
   }
-  initialize(cart: Equipment[]): void {
+  initialize(cart: ShopItems[]): void {
     for (let i = 0; i < cart.length; i++)
       this.cartProducts.push(cart[i]);
     console.log(this.cartProducts);
+    for (let j = 0; j < this.cartProducts.length; j++)
+      this.totalPrice = this.totalPrice + this.cartProducts[j].Quantity * this.cartProducts[j].Price;
+    console.log(this.totalPrice);
     this.modal.show();
 
   }
   showScanner() {
     this.scanqrcodeModal.initialize();
+  }
+  applyVoucher(event: string) {
+   
+      this.totalPrice = this.totalPrice - (25 * this.totalPrice) / 100;
+    
+   // console.log(this.totalPrice);
+    console.log("sunt in apply voucher");
   }
 
 }

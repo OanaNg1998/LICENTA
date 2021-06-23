@@ -190,13 +190,13 @@
               <span style="color:white">{{getProductQuantity(product.id)}}</span>
               <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>
 
-              <select class="productMeasure" (change)="chooseProductMeasure($event,product)" *ngIf="product.category=='Shorts' || product.category=='T-shirt' || product.category=='Trousers'">
-                <option value="XS">XS</option>
-                <option value="S" class="option">S</option>
-                <option value="M" class="option">M</option>
-                <option value="L" class="option">L</option>
-                <option value="XL" class="option">XL</option>
-                <option value="XXL" class="option">XXL</option>
+              <select class="productMeasure" (change)="chooseProductMeasure($event,product)">
+                <option value="XS"  *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> XS</option>
+                <option value="S" class="option"  *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> S</option>
+                <option value="M" class="option"  *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> M</option>
+                <option value="L" class="option"  *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> L</option>
+                <option value="XL" class="option"  *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> XL</option>
+                <option value="XXL" class="option"  *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> XXL</option>
               </select>
 
               <select class="productMeasure" *ngIf="product.category=='Sneakers'">
@@ -248,7 +248,7 @@
             </div>
             <div class="icon-style">
               <h4>{{product.productName}}</h4>
-              <h4>{{product.Price}}RON</h4>
+              <h4>{{product.price}} RON</h4>
               <button type="button" class="qty_button" (click)="inc(product.id)"><i class="fas fa-plus"></i></button>
               <span style="color:white">{{getProductQuantity(product.id)}}</span>
               <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>

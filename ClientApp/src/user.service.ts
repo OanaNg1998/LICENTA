@@ -34,5 +34,9 @@ export class UserService {
     let param = new HttpParams().set('emailAddress', emailAddress);
     return this.http.get(this.baseUrl + '/Subscription/Discount', { headers: this.header,params: param });
   }
+  getAllQRCodes() {
+    return this.http.get(this.baseUrl + '/SaleQRCode', { headers: this.header });
+
+  }
   
 }

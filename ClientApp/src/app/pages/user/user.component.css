@@ -9,7 +9,6 @@
   border-radius:10px;
 }
 
-
 .qty_button {
   background: #f75986;
   border-radius: 50%;
@@ -38,6 +37,7 @@
   border: 5px solid #f75986;
   border-radius: 10px;
   height:7%;
+  width:50%;
   margin-top:7%;
 }
 

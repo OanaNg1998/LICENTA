@@ -9,5 +9,7 @@ namespace JUSTMOVE.Services.NutritionProfuctService
     public interface INutritionProductService
     {
         public ICollection<NutritionProduct> GetNutritionProducts();
+        public ICollection<NutritionProduct> GetNProductsOrderedDescbyPrice();
+        public ICollection<NutritionProduct> GetNProductsOrderedCrescbyPrice();
     }
 }

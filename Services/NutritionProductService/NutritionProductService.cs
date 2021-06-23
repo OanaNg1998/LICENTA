@@ -21,5 +21,33 @@ namespace JUSTMOVE.Services.NutritionProfuctService
         {
             return _nutritionProductRepository.GetAll();
         }
+        public ICollection<NutritionProduct> GetNProductsOrderedDescbyPrice()
+        {
+
+            ICollection<NutritionProduct> orderedNProducts = new List<NutritionProduct>();
+            var equipment = _nutritionProductRepository.GetAll().OrderByDescending(x => x.Price);
+            foreach (NutritionProduct eqpm in equipment)
+            {
+                orderedNProducts.Add(eqpm);
+            }
+
+
+            return orderedNProducts;
+
+        }
+        public ICollection<NutritionProduct> GetNProductsOrderedCrescbyPrice()
+        {
+
+            ICollection<NutritionProduct> orderedNProducts = new List<NutritionProduct>();
+            var equipment = _nutritionProductRepository.GetAll().OrderBy(x => x.Price);
+            foreach (NutritionProduct eqpm in equipment)
+            {
+                orderedNProducts.Add(eqpm);
+            }
+
+
+            return orderedNProducts;
+
+        }
     }
 }
