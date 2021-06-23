@@ -35,6 +35,9 @@ using JUSTMOVE.Repositories.OrderHistoryRepository;
 using JUSTMOVE.Services.OrderHistoryService;
 using JUSTMOVE.Repositories.NutritionProductRepository;
 using JUSTMOVE.Services.NutritionProfuctService;
+using JUSTMOVE.Repositories.QRCodeRepository;
+using JUSTMOVE.Repositories.QRCode;
+using JUSTMOVE.Services.SaleQRCodeService;
 
 namespace JUSTMOVE
 {
@@ -95,6 +98,8 @@ namespace JUSTMOVE
             services.AddTransient<IOrderHistoryService, OrderHistoryService>();
             services.AddTransient<INutritionProductRepository, NutritionProductRepository>();
             services.AddTransient<INutritionProductService, NutritionProductService>();
+            services.AddTransient<ISaleQRCodeRepository, SaleQRCodeRepository>();
+            services.AddTransient<ISaleQRCodeService, SaleQRCodeService>();
 
 
             services.Configure<IdentityOptions>(options =>

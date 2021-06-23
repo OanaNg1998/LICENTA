@@ -31,6 +31,7 @@ export class UserComponent implements OnInit {
  // updateUserForm: FormGroup;
   
   qty: number = 0;
+  measure: string;
   productQuantities: Array<ProductQuantity> = new Array<ProductQuantity>();
   selectedOrder: string = '';
   aux: Equipment = new Equipment();
@@ -46,14 +47,6 @@ export class UserComponent implements OnInit {
       this.products = data;
       // console.log(data);
     })
-
-   
-   
-    
-    
-   
-   
-
     
    /* this.api['getUser']().subscribe((data: User) => {
       this.users = data;
@@ -67,16 +60,17 @@ export class UserComponent implements OnInit {
     this.isfilteredProducts = 1;
   }
     if (this.isfilteredProducts == 1) {
-      console.log("categorie:"+this.filterModal.filterValue.Category);
-      console.log("gen" + this.filterModal.filterValue.Gender);
+     // console.log("categorie:"+this.filterModal.filterValue.Category);
+      // console.log("gen" + this.filterModal.filterValue.Gender);
+     // console.log(this.filterModal.filterValue);
       while (this.filteredProducts.length > 0) {
         this.filteredProducts.pop();
       }
      
 
       for (let i = 0; i < this.products.length; i++) {
-       
-      if (this.products[i].category == this.filterModal.filterValue.Category && this.products[i].gender == this.filterModal.filterValue.Gender) {
+
+        if (this.products[i].category == this.filterModal.filterValue.Category && this.products[i].gender == this.filterModal.filterValue.Gender && this.products[i].brand == this.filterModal.filterValue.Brand && this.products[i].price >= this.filterModal.filterValue.Price[0] && this.products[i].price <= this.filterModal.filterValue.Price[1]) {
         this.filteredProducts.push(this.products[i]);
       }
     }
@@ -133,6 +127,7 @@ export class UserComponent implements OnInit {
  
     //console.log(product.id);
     product.quantity = this.getProductQuantity(product.id);
+    product.measure = this.measure;
     console.log(this.getProductQuantity(product.id));
     this.cartService.add(product);
    // console.log("am adaugat");
@@ -157,8 +152,11 @@ export class UserComponent implements OnInit {
   //  console.log(this.selectedOrder);
   }
   chooseProductMeasure(event: any, product: any) {
-    product.category = event.target.value;
-    console.log(product.category);
+    product.measure = event.target.value;
+   // console.log(product.measure);
+    this.measure = product.measure;
+    console.log(this.measure);
+    
     
 
   }

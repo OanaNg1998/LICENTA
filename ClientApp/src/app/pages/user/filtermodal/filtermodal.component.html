@@ -51,6 +51,25 @@
     </select>
     <br />
     <br />
+    <div class="container" id="searchbar_brand">
+      <ng-autocomplete [data]="filterBrandsProducts"
+                       [searchKeyword]="keyword"
+                       [itemTemplate]="itemTemplate"
+                       (selected)='selectEvent($event)'
+                       [notFoundTemplate]="notFoundTemplate"
+                       placeholder="Enter the brand">
+
+      </ng-autocomplete>
+      <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.brand"></a>
+      </ng-template>
+
+      <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+    </div>
+    <br />
+    <br />
     <button class=" btn btn-fill btn-danger button " style="margin-left:5%;" (click)="setFilterValues(filterForm.value)">Filter</button>
 
   </form>

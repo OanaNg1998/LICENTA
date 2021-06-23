@@ -28,5 +28,14 @@ export class ShopService {
   orderCrescByPrice() {
     return this.http.get(this.baseUrl + '/Equipment/OrderCrescByPrice', { headers: this.header });
   }
+  orderNPDescByPrice() {
+    return this.http.get(this.baseUrl + '/NutritionProduct/OrderNPDescByPrice', { headers: this.header });
+  }
+  orderNPCrescByPrice() {
+    return this.http.get(this.baseUrl + '/NutritionProduct/OrderNPCrescByPrice', { headers: this.header });
+  }
+  getBrandsForSearchbarFilter() {
+    return this.http.get(this.baseUrl + '/Equipment/GetBrands', { headers: this.header });
+  }
 
 }

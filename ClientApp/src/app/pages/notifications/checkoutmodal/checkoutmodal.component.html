@@ -14,6 +14,7 @@
                     <th>Product</th>
                     <th>Name</th>
                     <th>Quantity</th>
+                    <th>Measure</th>
                     <th>Price</th>
 
 
@@ -21,10 +22,11 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let cartProduct of cartProducts;let i=index">
-                    <td> <img src={{cartProduct.image}} /></td>
-                    <td> {{cartProduct.productName}} </td>
-                    <td>{{cartProduct.quantity}}</td>
-                    <td>{{cartProduct.price}} RON</td>
+                    <td> <img src={{cartProduct.Image}} /></td>
+                    <td> {{cartProduct.Name}} </td>
+                    <td>{{cartProduct.Quantity}}</td>
+                    <td>{{cartProduct.Measure}}</td>
+                    <td>{{cartProduct.Price}} RON</td>
 
                   </tr>
                 </tbody>
@@ -78,11 +80,18 @@
 
         <button id="order_btn" class=" btn btn-fill btn-danger button " (click)="makeOrder(orderForm.value)">Order</button>
       </form>
-      
-        <img  id="check_image" src="https://i.ibb.co/X37Hr8y/check-order-page.gif" />
-      
+
+      <img id="check_image" src="https://i.ibb.co/X37Hr8y/check-order-page.gif" />
+
       <h4 id="courier_text">Your order will be delivered with fast courier in 2-3 working days - 10 RON</h4>
+      <mat-list id="divider">
+
+        <mat-divider  class="divide_line"></mat-divider>
+        <mat-list-item id="total_text">&nbsp; TOTAL &nbsp;</mat-list-item>
+        <mat-divider class="divide_line"></mat-divider>
+        <mat-list-item id="total_price">{{totalPrice}} RON</mat-list-item>
+      </mat-list>
       <button id="qrcode_sale" class=" btn btn-fill btn-danger button " (click)="showScanner()">Scan your SALE CODE</button>
     </div>
-    <app-scanqrcodemodal #scanqrcodeModal></app-scanqrcodemodal>
+    <app-scanqrcodemodal #scanqrcodeModal (change)="applyVoucher($event)"></app-scanqrcodemodal>
 

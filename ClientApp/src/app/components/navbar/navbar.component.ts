@@ -4,6 +4,7 @@ import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { UserComponent } from "../../pages/user/user.component";
+import { NotificationsComponent } from "../../pages/notifications/notifications.component";
 
 
 
@@ -22,6 +23,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   public isCollapsed = true;
 
   closeResult: string;
+  public totalCartItems: any = this.shoppingCart.getTotalItems() ;
  
  
 
@@ -29,7 +31,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     location: Location,
     private element: ElementRef,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private shoppingCart:NotificationsComponent
   ) {
     this.location = location;
     this.sidebarVisible = false;
@@ -46,6 +49,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   };
   ngOnInit() {
+   // this.totalCartItems = 
+    console.log(this.totalCartItems);
+   
     
   /*  window.addEventListener("resize", this.updateColor);
     this.listTitles = ROUTES.filter(listTitle => listTitle);

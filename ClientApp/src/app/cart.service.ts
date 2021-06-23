@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Equipment } from './models/equipment';
 import { OrderData } from './models/orderData';
+import { ShopItems } from './models/shopItems';
 import { UserComponent } from './pages/user/user.component';
 
 @Injectable({
@@ -9,7 +10,9 @@ import { UserComponent } from './pages/user/user.component';
 })
 export class CartService {
 
-  cartProducts: Equipment[] = [];
+   cartProducts: ShopItems[] = [];
+  //addedProduct: ShopItems;
+  //addedProduct: ShopItems;
 
   constructor(private http: HttpClient) {
   }
@@ -19,11 +22,18 @@ export class CartService {
     'Access-Control-Allow-Origin': '*'
   });
   baseUrl = 'https://localhost:44315/api';
-  add(product: Equipment) {
+  add(product: any) {
+    var addedProduct: ShopItems;
    
-    this.cartProducts.push(product);
+    addedProduct = new ShopItems(product.id, product.productName, product.quantity, product.price, product.image,product.measure);
+    // this.cartProducts.push(product);
+    console.log(addedProduct.Measure);
+    console.log(addedProduct);
+    this.cartProducts.push(addedProduct);
+   // console.log(this.cartProducts);
   }
   get() {
+    console.log("GET" + this.cartProducts);
     return this.cartProducts;
   }
   updateProduct(product: Equipment) {

@@ -25,6 +25,7 @@ import { SimpleNotificationsModule } from 'angular2-notifications';
 import { Ng5SliderModule } from 'ng5-slider';
 import { ScanqrcodemodalComponent } from './pages/notifications/checkoutmodal/scanqrcodemodal/scanqrcodemodal.component';
 import { NutritionfiltermodalComponent } from './pages/icons/nutritionfiltermodal/nutritionfiltermodal.component';
+import { NotificationsComponent } from "./pages/notifications/notifications.component";
 
 
 

@@ -64,5 +64,33 @@ namespace JUSTMOVE.Services.EquipmentService
             return orderedProducts;
 
         }
+        public ICollection<Equipment> GetBrandsSearchBar()
+        {
+            ICollection<Equipment> equipments = new List<Equipment>();
+            var eqp = _equipmentRepository.GetAll();
+            ICollection<String> Brands = new List<String>();
+            int ok = 0;
+
+            foreach (Equipment eq in eqp)
+            {
+
+                foreach (String brand in Brands)
+                {
+                    if (eq.Brand == brand) ok = 1;
+                }
+                if (ok == 0)
+                {
+                    equipments.Add(eq);
+                    Brands.Add(eq.Brand);
+                }
+                ok = 0;
+
+
+
+            }
+            return equipments;
+
+
+        }
     }
 }

@@ -12,5 +12,6 @@ namespace JUSTMOVE.Services.EquipmentService
         public void UpdateProductInfo(Equipment updatedProduct);
         public ICollection<Equipment> GetEquipmentOrderedDescbyPrice();
         public ICollection<Equipment> GetEquipmentOrderedCrescbyPrice();
+        public ICollection<Equipment> GetBrandsSearchBar();
     }
 }

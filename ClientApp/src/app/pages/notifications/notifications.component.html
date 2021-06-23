@@ -13,19 +13,21 @@
                   <th>Product</th>
                   <th>Price</th>
                   <th>Quantity</th>
+                  <th>Measure</th>
                   <th>Remove Button</th>
 
                 </tr>
               </thead>
               <tbody>
                 <tr *ngFor="let cartProduct of cartContent;let i=index">
-                  <td> <img src={{cartProduct.image}} /></td>
-                  <td>{{cartProduct.price}} RON</td>
+                  <td> <img src={{cartProduct.Image}} /></td>
+                  <td>{{cartProduct.Price}} RON</td>
                   <td>
                     <button type="button" class="quantity_button"><i class="fas fa-plus"></i></button>
-                    <span>{{cartProduct.quantity}}</span>
+                    <span>{{cartProduct.Quantity}}</span>
                     <button type="button" class="quantity_button"><i class="fas fa-minus"></i></button>
                   </td>
+                  <td>{{cartProduct.Measure}}</td>
                   <td><button class=" btn btn-fill btn-danger button" (click)="delete(i)"><i class="fas fa-trash-alt"></i></button></td>
                 </tr>
               </tbody>

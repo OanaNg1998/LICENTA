@@ -12,3 +12,10 @@
   margin-top: -10%;
   margin-left: 5%;
 }
+#searchbar_brand {
+  border: 5px solid #f75986;
+  border-radius: 20px;
+  max-height: 70vh;
+  max-width: 25vw;
+  margin-left:5%;
+}

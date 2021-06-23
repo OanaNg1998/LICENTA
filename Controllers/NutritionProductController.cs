@@ -26,5 +26,19 @@ namespace JUSTMOVE.Controllers
             return _nutritionProductService.GetNutritionProducts();
 
         }
+        [HttpGet("OrderNPDescByPrice")]
+        public ICollection<NutritionProduct> GetProductsOrderedDesc()
+        {
+            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // id of the logged in user
+            //  var userId = "d79952bf-757b-42ec-9b0f-b11b136f5606";
+            return _nutritionProductService.GetNProductsOrderedDescbyPrice();
+        }
+        [HttpGet("OrderNPCrescByPrice")]
+        public ICollection<NutritionProduct> GetProductsOrderedCresc()
+        {
+            //var userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // id of the logged in user
+            //  var userId = "d79952bf-757b-42ec-9b0f-b11b136f5606";
+            return _nutritionProductService.GetNProductsOrderedCrescbyPrice();
+        }
     }
 }
