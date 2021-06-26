@@ -48,3 +48,7 @@
 #product_box{
     margin-top:-2%;
 }
+.nutrition_img {
+  max-height: 160px;
+  max-width: 210px;
+}

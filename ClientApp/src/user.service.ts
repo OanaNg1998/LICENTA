@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Input } from './app/models/input';
+import { Reservation } from './app/models/reservation';
 import { User } from './app/models/user';
 
 @Injectable({
@@ -26,14 +27,19 @@ export class UserService {
   updateUser(user: User) {
     return this.http.put(this.baseUrl + '/User', user, { headers: this.header });
   }
-  getQRCode(emailAddress: string) {
-    console.log("EMAIL IS: ");
-    console.log(emailAddress);
-    //this.adresa = new Input(emailAddress);
+  getQRCode(reservation: Reservation) {
+    console.log(reservation.Date);
     
-    let param = new HttpParams().set('emailAddress', emailAddress);
-    return this.http.get(this.baseUrl + '/Subscription/Discount', { headers: this.header,params: param });
+    let param = new HttpParams();
+    return this.http.post(this.baseUrl + '/Subscription/Discount',reservation, { headers: this.header,params: param });
   }
+  getReservation(reservation: Reservation) {
+    console.log(reservation.Date);
+
+    let param = new HttpParams();
+    return this.http.post(this.baseUrl + '/Subscription/Appointment', reservation, { headers: this.header, params: param });
+  }
+  
   getAllQRCodes() {
     return this.http.get(this.baseUrl + '/SaleQRCode', { headers: this.header });
 

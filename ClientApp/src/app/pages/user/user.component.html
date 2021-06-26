@@ -181,7 +181,7 @@
         <ng-container class="rama" *ngFor="let product of products">
           <div class="box">
             <div class="product_image">
-              <img src={{product.image}} alt="image" />
+              <img  class="eq_img" src={{product.image}} alt="image" />
             </div>
             <div class="icon-style">
               <h4>{{product.productName}}</h4>
@@ -191,6 +191,7 @@
               <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>
 
               <select class="productMeasure" (change)="chooseProductMeasure($event,product)">
+                <option></option>
                 <option value="XS"  *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> XS</option>
                 <option value="S" class="option"  *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> S</option>
                 <option value="M" class="option"  *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> M</option>
@@ -244,7 +245,7 @@
         <ng-container class="rama" *ngFor="let product of filteredProducts">
           <div class="box">
             <div class="product_image">
-              <img src={{product.image}} alt="image" />
+              <img  class="eq_img"  src={{product.image}} alt="image" />
             </div>
             <div class="icon-style">
               <h4>{{product.productName}}</h4>
@@ -252,6 +253,28 @@
               <button type="button" class="qty_button" (click)="inc(product.id)"><i class="fas fa-plus"></i></button>
               <span style="color:white">{{getProductQuantity(product.id)}}</span>
               <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>
+
+              <select class="productMeasure" (change)="chooseProductMeasure($event,product)">
+                <option></option>
+                <option value="XS" *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> XS</option>
+                <option value="S" class="option" *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> S</option>
+                <option value="M" class="option" *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> M</option>
+                <option value="L" class="option" *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> L</option>
+                <option value="XL" class="option" *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> XL</option>
+                <option value="XXL" class="option" *ngIf="product.category=='shorts' || product.category=='tshirt' || product.category=='trousers'"> XXL</option>
+              </select>
+
+              <select class="productMeasure" *ngIf="product.category=='Sneakers'">
+
+                <option value="order">36</option>
+                <option value="order">37</option>
+                <option value="order">38</option>
+                <option value="order">39</option>
+                <option value="order">40</option>
+                <option value="order">41</option>
+                <option value="order">42</option>
+
+              </select>
 
               <button class=" btn btn-fill btn-danger button" style="margin-left:1%;margin-top:10%;" (click)="onSuccess('One item added to cart!',product)">Add to cart</button>
 

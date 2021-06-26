@@ -58,6 +58,11 @@ export class CheckoutmodalComponent implements OnInit {
 
     this.service.postCreateOrder(this.data).subscribe((data: any) => { });
   }
+
+  closeModal() {
+    this.modal.hide();
+  }
+
   initialize(cart: ShopItems[]): void {
     for (let i = 0; i < cart.length; i++)
       this.cartProducts.push(cart[i]);

@@ -22,4 +22,16 @@
   font-size: 400%;
   font-family: Brush Script MT;
 }
+#reservationDate{
+    margin-left:10%;
+
+}
+#exit_modal {
+  right: 0;
+  top: 0;
+  position: absolute;
+  color: #f75986;
+  border-color: #f75986;
+  
+}
 

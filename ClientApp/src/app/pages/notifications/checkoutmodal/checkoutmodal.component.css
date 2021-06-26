@@ -45,13 +45,13 @@
   width:50%;
   height:10%;
 }
-#check_image{
+.check_image{
     width:5%;
     height:1%;
     margin-left:-40%;
     margin-top:76%;
 }
-#courier_text {
+.courier_text {
   color: black;
   font-family: Brush Script MT;
   margin-top:77%;
@@ -81,4 +81,16 @@
 .divide_line {
   border: 5px solid #f75986;
   border-radius: 10%;
+}
+#checkout_img {
+  max-height: 250px;
+  max-width: 150px;
+}
+#exit_modal {
+  margin-left: 0.2vw;
+  margin-top: 0.5vh;
+  position: absolute;
+  color: #f75986;
+  border-color: #f75986;
+  position: fixed;
 }

@@ -1,23 +1,26 @@
 <div bsModal class=" row modal fade propertiesModal" #scheduleClassModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="scheduleClassModal"
      aria-hidden="true">
   
-  
+  <button id="exit_modal" (click)="closeModal()"><i class="fas fa-window-close" style="    color: #f75986;"></i></button>
   <form #scheduleForm="ngForm" (ngSubmit)="getValues(scheduleForm.value)">
     <br />
     <h1 class="title">{{title}} Class</h1>
+    <input type="date" id="reservationDate" ngModel name="reservationDate"
+           value={{todayDate}}
+           min="2021-01-01" max="2021-12-31">
     <br />
     <br />
     <br />
-    <input class=" form-control input" type="text" ngModel name="emailAddress" placeholder="enter the email" style="width:40%;" />
+    <input class=" form-control input" type="text" ngModel name="emailAddress" placeholder="enter the email" style="width:40%; color:black;"required />
     <br />
     <br />
-    <input type="text" class=" form-control input" ngModel name="Last Name " placeholder="enter the name" style="width:40%;" />
+    <input type="text" class=" form-control input" ngModel name="ownerName" placeholder="enter the name" style="width:40%;color:black" required />
     <br />
     <br />
-    <input  id="numberFriends" type="number" class=" form-control input" ngModel name="numberFriends" placeholder="enter the number of persons" style="width:40%;"  />
+    <input id="numberFriends" type="number" class=" form-control input" ngModel name="numberFriends" placeholder="enter the number of persons" style="width:40%;color:black " required/>
     <br />
     <br />
-    <button class=" btn btn-fill btn-danger button "  (click)="sale(scheduleForm.value)">Make Appointment!</button>
+    <button class=" btn btn-fill btn-danger button " (click)="sale(scheduleForm.value)">Make Appointment!</button>
     <img src="https://i.ibb.co/LNmkdPG/ezgif-com-gif-maker-2.gif" class="gif" />
   </form>
 </div>

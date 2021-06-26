@@ -1,5 +1,7 @@
 <div bsModal class=" row modal fade customModal" #filterModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="filterModal"
      aria-hidden="true">
+  <button id="exit_modal" (click)="closeModal()"><i class="fas fa-window-close" style="    color: #f75986;"></i></button>
+  <br />
   <form #filterForm="ngForm" (ngSubmit)="getValues(filterForm.value)">
     <h5 style="    color: black; margin-left: 5%; margin-top: 5%;">Gender:</h5>
 

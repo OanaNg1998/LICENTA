@@ -1,5 +1,6 @@
 <div bsModal class=" row modal fade customModal" #nutritionfilterModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="nutritionfilterModal"
      aria-hidden="true">
+  <button id="exit_modal" (click)="closeModal()"><i class="fas fa-window-close" style="    color: #f75986;"></i></button>
 
   <form #filterForm="ngForm">
     <!-- <h5 style="    color: black; margin-left: 5%; margin-top: 5%;">Gender:</h5>
@@ -16,7 +17,7 @@
     </div>
     -->
     <h5 style="color:black;margin-left:5%;margin-top:5%;">Category:</h5>
-    <select class="categoryFilter" ngModel name="category" >
+    <select class="categoryFilter" ngModel name="category">
       <option value="tshirt" class="option">Protein Bar</option>
       <option value="shorts" class="option">Protein Powder</option>
       <option value="trousers" class="option">Other Supliments</option>
@@ -29,16 +30,16 @@
     <br />
     <br />
     <h5 style="color:black;margin-left:5%;margin-top:5%;">Brand:</h5>
-    <select id="categoryBrandFilter" ngModel name="measure" >
+    <select id="categoryBrandFilter" ngModel name="measure">
     </select>
 
-   
-   
+
+
     <br />
     <br />
     <button class=" btn btn-fill btn-danger button " style="margin-left:5%;">Filter</button>
 
   </form>
-  </div>
+</div>
 
 

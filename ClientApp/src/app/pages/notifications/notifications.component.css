@@ -7,3 +7,8 @@
 .quantity_button i{
     color:white;
 }
+.shopCart_img {
+  max-height: 250px;
+  max-width: 150px;
+}
+

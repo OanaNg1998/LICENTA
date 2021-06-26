@@ -34,6 +34,9 @@ export class ScanqrcodemodalComponent implements OnInit {
     this.modal.show();
 
   }
+  closeModal() {
+    this.modal.hide();
+  }
   public scanSuccessHandler($event: any) {
     this.scannerEnabled = false;
     this.information = "Se extrage informația.. ";

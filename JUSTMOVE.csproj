@@ -43,6 +43,7 @@
     <None Remove="ClientApp\src\app\models\orderData.ts" />
     <None Remove="ClientApp\src\app\models\OrderProduct.ts" />
     <None Remove="ClientApp\src\app\models\productQuantity.ts" />
+    <None Remove="ClientApp\src\app\models\reservation.ts" />
     <None Remove="ClientApp\src\app\models\SaleQRCode.ts" />
     <None Remove="ClientApp\src\app\models\shopItems.ts" />
     <None Remove="ClientApp\src\app\models\training.ts" />
@@ -55,6 +56,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\models\address.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\equipment.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\models\reservation.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\shopItems.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\nutritionproduct.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\models\filter.ts" />

@@ -29,5 +29,8 @@ export class NutritionfiltermodalComponent implements OnInit {
     this.modal.show();
 
   }
+  closeModal() {
+    this.modal.hide();
+  }
 
 }

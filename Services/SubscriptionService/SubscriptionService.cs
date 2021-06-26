@@ -19,7 +19,7 @@ namespace JUSTMOVE.Services.SubscriptionService
         private readonly IEmailSender _emailSender;
         private readonly ISaleQRCodeRepository _qrCodeRepository;
 
-        public SubscriptionService(ISubscriptionRepository subscriptionRepository, IEmailSender emailSender,ISaleQRCodeRepository qrCodeRepository)
+        public SubscriptionService(ISubscriptionRepository subscriptionRepository, IEmailSender emailSender, ISaleQRCodeRepository qrCodeRepository)
         {
             _subscriptionRepository = subscriptionRepository;
             _emailSender = emailSender;
@@ -33,20 +33,20 @@ namespace JUSTMOVE.Services.SubscriptionService
                 return null;
             }
             _subscriptionRepository.Create(subscription);
-          
-           
+
+
 
             _subscriptionRepository.SaveChanges();
             return subscription;
         }
-        public async Task<string> GetQRCodeAsync( string emailAddress)
+        public async Task<string> GetQRCodeAsync(Reservation reservation)
         {
             // var qrText = "maimuta";
             Random random = new Random();
             const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            var qrText =  new string(Enumerable.Repeat(chars, 10)
+            var qrText = new string(Enumerable.Repeat(chars, 10)
       .Select(s => s[random.Next(s.Length)]).ToArray());
-           // Console.Write(qrText);
+            // Console.Write(qrText);
             QRCoder.QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrText, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
@@ -58,10 +58,11 @@ namespace JUSTMOVE.Services.SubscriptionService
                 byte[] byteArr = ms.ToArray();
                 string b64Txt = Convert.ToBase64String(byteArr);
                 string message;
-              
+
                 string hrefText = "data:image/png;base64," + b64Txt;
-                message = "<p><img src='" + hrefText + "'</p>";
-                //aici
+
+                message = "Dear " + reservation.OwnerName + ",<br/><br/>We are glad to inform you that you won a 25% discount voucher because you made an appointment in " + reservation.ReservationDate.ToString("dd/MM/yyyy") + " for " + reservation.NumberPersons + "  people for " + reservation.ClassName + " class ! " +
+                    "Your code is right here:" + "<p><img src='" + hrefText + "'</p> " + " <br/><br/>You can use it only on our site in the online shopping section." + " <br/><br/>Enjoy your prize and thank you for your appointment, " + "<br/><br/>Just Move team. ";
                 SaleQRCode code = new SaleQRCode
                 {
                     Id = Guid.NewGuid().ToString(),
@@ -72,13 +73,29 @@ namespace JUSTMOVE.Services.SubscriptionService
                 _qrCodeRepository.Create(code);
                 //aici
 
-                await _emailSender.SendEmailAsync(emailAddress/*"oana_neagu98@yahoo.com"*/, "Discount",
+                await _emailSender.SendEmailAsync(reservation.Email, "25% OFF VOUCHER",
                        message);
                 return hrefText;
             }
-            
-           
+
+
 
         }
-    }
+    
+        public async Task<string> GetReservationInfoAsync(Reservation reservation)
+        {
+           
+                
+                string message;
+
+               
+                message = "Dear " + reservation.OwnerName + ",<br/><br/>We are happy to see that you made an appointment on " + reservation.ReservationDate.ToString("dd/MM/yyyy") + " for " + reservation.NumberPersons + "  people for " + reservation.ClassName + " class ! " +
+                    "Your appointment has been registered,we can't wait to see you there!" +  " <br/><br/>Thank you for your appointment, " + "<br/><br/>Just Move team. ";
+               
+                await _emailSender.SendEmailAsync(reservation.Email, "Appointment registered",
+                       message);
+                return "ok";
+            }
+        }
+
 }

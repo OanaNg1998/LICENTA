@@ -19,3 +19,13 @@
   max-width: 25vw;
   margin-left:5%;
 }
+#exit_modal {
+  left: 0;
+  top: 0;
+  position: absolute;
+  color: #f75986;
+  border-color: #f75986;
+  margin-left: 35vw;
+  margin-top: 13.5vh;
+  position: fixed;
+}

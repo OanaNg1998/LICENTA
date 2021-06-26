@@ -6,3 +6,13 @@
   margin-left: 20vw;
   margin-top: 13.5vh;
 }
+#exit_modal {
+  left: 0;
+  top: 0;
+  position: absolute;
+  color: #f75986;
+  border-color: #f75986;
+  margin-left: 20vw;
+  margin-top: 13.5vh;
+  position: fixed;
+}
