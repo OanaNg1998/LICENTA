@@ -22,7 +22,9 @@ export class CheckoutmodalComponent implements OnInit {
   @Output() change: EventEmitter<string> = new EventEmitter<string>();
   cartProducts: ShopItems[] = [];
   data: OrderData = new OrderData();
-  totalPrice: any = 10 ;
+  totalPrice: any = 0;
+  totalOTPrice: any = 0;
+  sale: any = false;
 
   constructor(private service: CartService) { }
 
@@ -33,18 +35,26 @@ export class CheckoutmodalComponent implements OnInit {
    // console.log(val);
   }
   makeOrder(val) {
-    console.log(val.name);
-    console.log(val.email);
-    console.log(val);
+   // console.log(val.name);
+   // console.log(val.email);
+    //console.log(val);
     this.data.Name = val.name;
     this.data.Email = val.email;
+    this.data.DeliveryAddress = val.deliveryaddress + "," + val.city + "," + val.county;
+    this.data.PhoneNumber = val.phonenumber;
+    console.log("a intrat in apply voucher" + this.sale);
+    if (this.sale == false) this.data.AppliedVoucher = false;
+    else this.data.AppliedVoucher = true; 
+   
+   // console.log(this.data.DeliveryAddress);
+
     //console.log(this.cartProducts);
    // console.log(this.cartProducts[0].id);
     // console.log(this.data);
-    console.log(this.data.Products);
+   // console.log(this.data.Products);
     for (let i = 0; i < this.cartProducts.length; i++) {
-      console.log("am intrat in for");
-      this.data.Products[i] = new OrderProduct(this.cartProducts[i].Id, this.cartProducts[i].Quantity, this.cartProducts[i].Name);
+     // console.log("am intrat in for");
+      this.data.Products[i] = new OrderProduct(this.cartProducts[i].Id, this.cartProducts[i].Quantity, this.cartProducts[i].Name, this.cartProducts[i].Price, this.cartProducts[i].Image, this.cartProducts[i].Measure);
       
     //  this.data.Products[i].Quantity = this.cartProducts[i].quantity;
      // console.log(this.cartProducts[i].id);
@@ -53,7 +63,7 @@ export class CheckoutmodalComponent implements OnInit {
     }
    
 
-    console.log(this.data);
+   // console.log(this.data);
 
 
     this.service.postCreateOrder(this.data).subscribe((data: any) => { });
@@ -66,10 +76,11 @@ export class CheckoutmodalComponent implements OnInit {
   initialize(cart: ShopItems[]): void {
     for (let i = 0; i < cart.length; i++)
       this.cartProducts.push(cart[i]);
-    console.log(this.cartProducts);
+   // console.log(this.cartProducts);
     for (let j = 0; j < this.cartProducts.length; j++)
       this.totalPrice = this.totalPrice + this.cartProducts[j].Quantity * this.cartProducts[j].Price;
-    console.log(this.totalPrice);
+    
+   // console.log(this.totalPrice);
     this.modal.show();
 
   }
@@ -77,8 +88,11 @@ export class CheckoutmodalComponent implements OnInit {
     this.scanqrcodeModal.initialize();
   }
   applyVoucher(event: string) {
-   
-      this.totalPrice = this.totalPrice - (25 * this.totalPrice) / 100;
+    this.sale = true;
+    this.totalPrice = (this.totalPrice - (25 * this.totalPrice) / 100);
+    
+   // console.log(this.applySale);
+  
     
    // console.log(this.totalPrice);
     console.log("sunt in apply voucher");
