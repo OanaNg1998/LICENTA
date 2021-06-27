@@ -1,6 +1,7 @@
 import { ViewChild } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import { ToastrService } from 'ngx-toastr';
+import Swal from "sweetalert2";
 import { CartService } from "../../cart.service";
 import { Equipment } from "../../models/equipment";
 import { ShopItems } from "../../models/shopItems";
@@ -48,7 +49,17 @@ export class NotificationsComponent implements OnInit {
   public getTotalItems() {
     return NotificationsComponent.totalItems;
   }
- 
+  emptyShoppingCart(event: string) {
+    while (this.cartContent.length > 0) {
+      this.cartContent.pop();
+    }
+    while (this.cartService.get().length > 0) {
+      this.cartService.get().pop();
+    }
+
+   
+
+  }
 
 
   showFinalOrder() {

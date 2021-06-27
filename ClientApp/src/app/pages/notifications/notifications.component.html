@@ -50,7 +50,7 @@
       </div>
     </div>
     <button class="btn btn-outline-light" (click)="showFinalOrder()">Checkout</button>
-    <app-checkoutmodal #checkoutModal></app-checkoutmodal>
+    <app-checkoutmodal #checkoutModal (change)="emptyShoppingCart($event)"></app-checkoutmodal>
 
     <!--<div class=" content">
       <div class=" row">

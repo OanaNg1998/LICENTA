@@ -33,6 +33,7 @@ export class FindmeasuremodalComponent implements OnInit {
     var jeansWMeasure = "x";
     var generalMMeasure="x";
     var jeansMMeasure = "x";
+    
 
 
     //woman

@@ -825,11 +825,11 @@
 </select>
 <button type="button" class="filterIcon" (click)="showNutritionFilter()"><i class="fas fa-sort"></i></button>
 
-<section class="product"  id="product_box">
+<section class="product"  *ngIf=" !(isfilteredNProducts)"  id="product_box">
   <div class="container text-center">
     <div class="row" style="height:500px;width:5px;">
       <div style="display:flex;">
-        <ng-container class="rama" *ngFor="let product of nutritionproducts">
+        <ng-container class="rama" *ngFor="let product of nutritionProducts">
           <div class="box">
             <div class="product_image">
               <img class="nutrition_img" src={{product.image}} alt="image" />
@@ -869,5 +869,51 @@
 
   </div>
 </section>
+
+<section class="product" *ngIf=" isfilteredNProducts" id="product_box">
+  <div class="container text-center">
+    <div class="row" style="height:500px;width:5px;">
+      <div style="display:flex;">
+        <ng-container class="rama" *ngFor="let product of filteredNProducts">
+          <div class="box">
+            <div class="product_image">
+              <img class="nutrition_img" src={{product.image}} alt="image" />
+            </div>
+            <div class="icon-style">
+              <h4 style="color:white;">{{product.productName}}</h4>
+              <h4>{{product.price}} RON</h4>
+              <button type="button" class="qty_button" (click)="inc(product.id)"><i class="fas fa-plus"></i></button>
+              <span style="color:white">{{getNProductQuantity(product.id)}}</span>
+              <button type="button" class="qty_button" (click)="dec(product.id)"><i class="fas fa-minus"></i></button>
+
+
+
+
+              <button class=" btn btn-fill btn-danger button" style="margin-left:1%;margin-top:10%;" (click)="onNSuccess('One item added to cart!',product)">Add to cart</button>
+
+            </div>
+
+          </div>
+
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+          <span>&nbsp;</span>
+
+
+
+
+        </ng-container>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <simple-notifications></simple-notifications>
-<app-nutritionfiltermodal #nutritionfilterModal></app-nutritionfiltermodal>
+<app-nutritionfiltermodal #nutritionfilterModal (change)="filterNProduct($event)"></app-nutritionfiltermodal>

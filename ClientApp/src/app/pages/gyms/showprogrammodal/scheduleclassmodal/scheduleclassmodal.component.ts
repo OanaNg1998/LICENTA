@@ -50,11 +50,12 @@ export class ScheduleclassmodalComponent implements OnInit {
     var validNrF = 0;
     //if (val.ownerName.required == false) console.log("este 000000000");
 
-    if (!/[^a-zA-Z\s]/.test(val.ownerName) == true ) validOwN = 1;
-    if (val.emailAddress.includes("@") == true) validEmail = 1;
-    if (reservationdate >= this.today) validDate = 1;
-    if (val.numberFriends > 0 ) {
-      console.log("am intrat in claid friends"); validNrF = 1;
+    if (!/[^a-zA-Z\s]/.test(val.ownerName) == true && val.ownerName!="") validOwN = 1;
+    if (val.emailAddress.includes("@") == true && val.emailAddress!="") validEmail = 1;
+    if (reservationdate >= this.today && val.reservationDate!="") validDate = 1;
+    if (val.numberFriends > 0 && val.numberFriends!="" ) {
+      // console.log("am intrat in claid friends");
+      validNrF = 1;
     }
     console.log(validOwN);
     console.log(validEmail);

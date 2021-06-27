@@ -14,18 +14,20 @@ import { NutritionfiltermodalComponent } from "./nutritionfiltermodal/nutritionf
 })
 export class IconsComponent implements OnInit {
 
-  public nutritionproducts: any;
+  public nutritionProducts: any;
  
   nProductQuantities: Array<ProductQuantity> = new Array<ProductQuantity>();
   selectedNOrder: string = '';
+  isfilteredNProducts: number = 0;
+  public filteredNProducts: Array<NutritionProduct> = new Array<NutritionProduct>();
 
   @ViewChild('nutritionfilterModal', { static: false }) nutritionfilterModal: NutritionfiltermodalComponent;
   constructor(private api1: ShopService, private cartService: CartService, private serviceN: NotificationsService) { }
 
   ngOnInit() {
     this.api1['getNutritionProducts']().subscribe((data: NutritionProduct[]) => {
-      this.nutritionproducts = data;
-      // console.log(data);
+      this.nutritionProducts = data;
+      console.log("in ng "+this.nutritionProducts);
     })
   }
   onNSuccess(message, product: any) {
@@ -44,11 +46,45 @@ export class IconsComponent implements OnInit {
     this.cartService.add(product);
     // console.log("am adaugat");
   }
+  filterNProduct(event: string) {
+    console.log("a intrat in icons " + this.nutritionfilterModal.isNFilter);
+    if (this.nutritionfilterModal.isNFilter == 1) {
+      this.isfilteredNProducts = 1;
+    }
+    if (this.isfilteredNProducts == 1) {
+      // console.log("categorie:"+this.filterModal.filterValue.Category);
+      // console.log("gen" + this.filterModal.filterValue.Gender);
+      // console.log(this.filterModal.filterValue);
+      while (this.filteredNProducts.length > 0) {
+        this.filteredNProducts.pop();
+      }
+
+      console.log("categorie in icons " + this.nutritionfilterModal.filterNValue.Brand);
+      for (let k = 0; k < this.nutritionProducts.length; k++) {
+
+
+        console.log("produse " + this.nutritionProducts[k].Category);
+        console.log("produse " + this.nutritionProducts[k].Brand);
+        console.log("produse " + this.nutritionProducts[k].Price);
+
+
+      }
+      console.log("brand filtrat "+this.nutritionfilterModal.filterNValue.Brand);
+      for (let i = 0; i < this.nutritionProducts.length; i++) {
+        console.log("categorii baza de date " + this.nutritionProducts[i].price);
+        if (this.nutritionProducts[i].category == this.nutritionfilterModal.filterNValue.Category && this.nutritionProducts[i].brand == this.nutritionfilterModal.filterNValue.Brand  && this.nutritionProducts[i].price >= this.nutritionfilterModal.filterNValue.Price[0] && this.nutritionProducts[i].price <= this.nutritionfilterModal.filterNValue.Price[1]) {
+          this.filteredNProducts.push(this.nutritionProducts[i]);
+        }
+      }
+    }
+
+
+  }
   selectChangeHandler(event: any) {
     this.selectedNOrder = event.target.value;
     if (this.selectedNOrder == "desc") {
       this.api1['orderNPDescByPrice']().subscribe((data: NutritionProduct[]) => {
-        this.nutritionproducts = data;
+        this.nutritionProducts = data;
 
         // console.log(data);
       });
@@ -56,7 +92,7 @@ export class IconsComponent implements OnInit {
 
     else if (this.selectedNOrder == "cresc") {
       this.api1['orderNPCrescByPrice']().subscribe((data: NutritionProduct[]) => {
-        this.nutritionproducts = data;
+        this.nutritionProducts = data;
         // console.log(data);
       });
 
