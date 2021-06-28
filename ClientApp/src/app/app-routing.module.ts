@@ -8,6 +8,7 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { AuthorizeGuard } from "../api-authorization/authorize.guard";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "../api-authorization/login/login.component";
+import { CounterComponent } from "./counter/counter.component";
 
 const routes: Routes = [
  /* {
@@ -42,6 +43,7 @@ const routes: Routes = [
   { path: 'home', component: AdminLayoutComponent, canActivate: [AuthorizeGuard] },
   { path: '', component: HomeComponent },
   { path: 'login', component: HomeComponent },
+  { path: 'contact', component: CounterComponent },
  
 ];
 
