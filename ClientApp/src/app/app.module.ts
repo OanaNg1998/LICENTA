@@ -27,6 +27,7 @@ import { ScanqrcodemodalComponent } from './pages/notifications/checkoutmodal/sc
 import { NutritionfiltermodalComponent } from './pages/icons/nutritionfiltermodal/nutritionfiltermodal.component';
 import { NotificationsComponent } from "./pages/notifications/notifications.component";
 import { CounterComponent } from "./counter/counter.component";
+import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 
 
 
@@ -49,7 +50,8 @@ import { CounterComponent } from "./counter/counter.component";
     { path: 'login', component: HomeComponent },
     { path: 'home', component: AdminLayoutComponent, canActivate: [AuthorizeGuard] },
       { path: '', component: HomeComponent },
-      { path: 'contact', component: CounterComponent }
+      { path: 'contact', component: CounterComponent },
+      { path: 'aboutus', component: FetchDataComponent }
 ], { relativeLinkResolution: 'legacy' }),
 
    // AppRoutingModule,

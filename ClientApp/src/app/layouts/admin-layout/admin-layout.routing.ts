@@ -16,12 +16,12 @@ export const AdminLayoutRoutes: Routes = [
   {
     path: 'home', component: AdminLayoutComponent, children: [
 
-      { path: '', redirectTo: 'icons', pathMatch: 'full' },
+      { path: '', redirectTo: 'gyms', pathMatch: 'full' },
      
-      { path: "icons", component: IconsComponent },
-      { path: "maps", component: MapComponent },
-      { path: "notifications", component: NotificationsComponent },
-      { path: "user", component: UserComponent },
+      { path: "nutrition", component: IconsComponent },
+      { path: "gyms", component: MapComponent },
+      { path: "shoppingcart", component: NotificationsComponent },
+      { path: "equipment", component: UserComponent },
       { path: "tables", component: TablesComponent },
       { path: "typography", component: TypographyComponent },
     ]

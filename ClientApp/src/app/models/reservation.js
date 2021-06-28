@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Reservation = void 0;
 var Reservation = /** @class */ (function () {
-    function Reservation(Date, Email, OwnerName, ClassName, NumberPersons) {
-        this.Date = Date;
+    function Reservation(ReservationDate, Email, OwnerName, ClassName, NumberPersons) {
+        this.ReservationDate = ReservationDate;
         this.Email = Email;
         this.OwnerName = OwnerName;
         this.ClassName = ClassName;

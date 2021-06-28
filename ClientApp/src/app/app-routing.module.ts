@@ -9,6 +9,8 @@ import { AuthorizeGuard } from "../api-authorization/authorize.guard";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "../api-authorization/login/login.component";
 import { CounterComponent } from "./counter/counter.component";
+import { NavMenuComponent } from "./nav-menu/nav-menu.component";
+import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 
 const routes: Routes = [
  /* {
@@ -44,6 +46,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: HomeComponent },
   { path: 'contact', component: CounterComponent },
+  { path: 'aboutus', component: FetchDataComponent },
  
 ];
 
@@ -57,5 +60,6 @@ const routes: Routes = [
 })
   ],
   exports: [RouterModule]
+
 })
 export class AppRoutingModule {}

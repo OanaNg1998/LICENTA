@@ -1,13 +1,13 @@
 export class Reservation {
-  Date: Date;
+  ReservationDate: Date;
   Email: string;
   OwnerName: string;
   ClassName: string;
   NumberPersons: number;
 
 
-  constructor(Date?: Date, Email?: string, OwnerName?: string,ClassName?:string,NumberPersons?:number) {
-    this.Date = Date;
+  constructor(ReservationDate?: Date, Email?: string, OwnerName?: string,ClassName?:string,NumberPersons?:number) {
+    this.ReservationDate = ReservationDate;
     this.Email = Email;
     this.OwnerName = OwnerName;
     this.ClassName = ClassName;

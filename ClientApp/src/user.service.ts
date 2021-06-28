@@ -28,13 +28,13 @@ export class UserService {
     return this.http.put(this.baseUrl + '/User', user, { headers: this.header });
   }
   getQRCode(reservation: Reservation) {
-    console.log(reservation.Date);
+    console.log(reservation.ReservationDate);
     
     let param = new HttpParams();
     return this.http.post(this.baseUrl + '/Subscription/Discount',reservation, { headers: this.header,params: param });
   }
   getReservation(reservation: Reservation) {
-    console.log(reservation.Date);
+    console.log(reservation.ReservationDate);
 
     let param = new HttpParams();
     return this.http.post(this.baseUrl + '/Subscription/Appointment', reservation, { headers: this.header, params: param });
