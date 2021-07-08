@@ -1,6 +1,7 @@
 import { ViewChild } from "@angular/core";
 import { Component, OnInit } from "@angular/core";
 import { ToastrService } from 'ngx-toastr';
+import Swal from "sweetalert2";
 import { CartService } from "../../cart.service";
 import { Equipment } from "../../models/equipment";
 import { ShopItems } from "../../models/shopItems";
@@ -16,7 +17,8 @@ import { CheckoutmodalComponent } from "./checkoutmodal/checkoutmodal.component"
 export class NotificationsComponent implements OnInit {
 
   cartContent: ShopItems[] = [];
-  public static totalItems: any =0;
+  public static totalItems: any = 0;
+  
   @ViewChild('checkoutModal', { static: false }) checkoutModal: CheckoutmodalComponent;
   constructor(private cartService: CartService) { }
 
@@ -35,11 +37,28 @@ export class NotificationsComponent implements OnInit {
     console.log(this.getTotalItems());
 
   }
-  delete(id: number) {
-    this.cartContent.splice(id, 1);
+  delete(index: number) {
+    this.cartContent.splice(index, 1);
+
+    /*for (let j = 0; j < this.cartService.get().length; j++) {
+      if (this.cartService.get()[j].Id == Id) delete this.cartService.get()[j];
+    }
+    console.log(this.cartService.get());*/
+   // console.log(this.cartContent);
   }
   public getTotalItems() {
     return NotificationsComponent.totalItems;
+  }
+  emptyShoppingCart(event: string) {
+    while (this.cartContent.length > 0) {
+      this.cartContent.pop();
+    }
+    while (this.cartService.get().length > 0) {
+      this.cartService.get().pop();
+    }
+
+   
+
   }
 
 

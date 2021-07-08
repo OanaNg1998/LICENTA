@@ -1,0 +1,21 @@
+th {
+  color: #f75986;
+  font-family: Brush Script MT;
+}
+td {
+  color: white;
+  font-family: Brush Script MT;
+}
+table {
+   color: white;
+   margin-left: 5%;
+}
+i {
+  height: 60%;
+  width: 50%;
+  position: fixed;
+  left: 0.5%;
+  top: 3%;
+  color: #f75986;
+}
+

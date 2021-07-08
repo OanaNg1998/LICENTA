@@ -1,5 +1,7 @@
 <div bsModal class=" row modal fade customModal" #checkoutModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="checkoutModal"
      aria-hidden="true">
+  <button id="exit_modal" (click)="closeModal()"><i class="fas fa-window-close" style="    color: #f75986;"></i></button>
+
   <h1 id="title_order1">Your order summary:</h1>
   <div class=" content">
     <div class=" row">
@@ -22,7 +24,7 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="let cartProduct of cartProducts;let i=index">
-                    <td> <img src={{cartProduct.Image}} /></td>
+                    <td> <img id="checkout_img" src={{cartProduct.Image}} /></td>
                     <td> {{cartProduct.Name}} </td>
                     <td>{{cartProduct.Quantity}}</td>
                     <td>{{cartProduct.Measure}}</td>
@@ -44,52 +46,56 @@
 
         <div>
           <label>Email:</label>
-          <input class=" form-control input" type="text" ngModel name="email" placeholder="enter your email " style="width:120%;" />
+          <input class=" form-control input" type="text" ngModel name="email" placeholder="enter your email " style="width:120%;color:black;" required/>
         </div>
         <br />
 
         <div>
           <label>Complete name:</label>
-          <input type="text" class=" form-control input" ngModel name="name" placeholder="enter your name" style="width:120%;" />
+          <input type="text" class=" form-control input" ngModel name="name" placeholder="enter your name" style="width:120%;color:black;"required />
         </div>
         <br />
 
         <div>
           <label>Phone number:</label>
-          <input type="text" class=" form-control input" ngModel name="phonenumber" placeholder="enter your phone number" style="width:120%;" />
+          <input type="text" class=" form-control input" ngModel name="phonenumber" placeholder="enter your phone number" style="width:120%;color:black;"required />
         </div>
         <br />
 
         <div>
           <label>Delivery address:</label>
-          <input type="text" class=" form-control input" ngModel name="deliveryaddress" placeholder="enter the delivery address" style="width:120%;" />
+          <input type="text" class=" form-control input" ngModel name="deliveryaddress" placeholder="enter the delivery address" style="width:120%;color:black;"required />
         </div>
         <br />
 
         <div>
           <label>City:</label>
-          <input type="text" class=" form-control input" ngModel name="city" placeholder="enter the city" style="width:120%;" />
+          <input type="text" class=" form-control input" ngModel name="city" placeholder="enter the city" style="width:120%;color:black;" required/>
         </div>
         <br />
 
         <div>
           <label>County:</label>
-          <input type="text" class=" form-control input" ngModel name="county" placeholder="enter the county" style="width:120%;" />
+          <input type="text" class=" form-control input" ngModel name="county" placeholder="enter the county" style="width:120%;color:black;"required />
         </div>
         <br />
 
         <button id="order_btn" class=" btn btn-fill btn-danger button " (click)="makeOrder(orderForm.value)">Order</button>
       </form>
 
-      <img id="check_image" src="https://i.ibb.co/X37Hr8y/check-order-page.gif" />
+      <img class="check_image" src="https://i.ibb.co/X37Hr8y/check-order-page.gif" />
 
-      <h4 id="courier_text">Your order will be delivered with fast courier in 2-3 working days - 10 RON</h4>
+      <h4 class="courier_text">Payment will be made upon delivery by fast courier in 2-3 working days - 10 RON</h4>
+
+
+
+
       <mat-list id="divider">
 
-        <mat-divider  class="divide_line"></mat-divider>
+        <mat-divider class="divide_line"></mat-divider>
         <mat-list-item id="total_text">&nbsp; TOTAL &nbsp;</mat-list-item>
         <mat-divider class="divide_line"></mat-divider>
-        <mat-list-item id="total_price">{{totalPrice}} RON</mat-list-item>
+        <mat-list-item id="total_price">{{totalPrice+10}} RON</mat-list-item>
       </mat-list>
       <button id="qrcode_sale" class=" btn btn-fill btn-danger button " (click)="showScanner()">Scan your SALE CODE</button>
     </div>

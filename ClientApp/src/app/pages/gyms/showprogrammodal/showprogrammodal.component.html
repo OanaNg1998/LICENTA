@@ -1,5 +1,7 @@
 <div bsModal class=" row modal fade customModal" #showProgramModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="showProgramModal"
      aria-hidden="true">
+  <button id="exit_modal" (click)="closeModal()"><i class="fas fa-window-close" style="    color: #f75986;"></i></button>
+
 
   <div class=" row " style="  margin-top:3vh; margin-left:5%;margin-right:5%;">
     <div class=" col-md-12">
@@ -22,7 +24,8 @@
                 <tr *ngFor="let training of trainings;">
                   <td>{{training.name}}</td>
                   <td>{{training.startHour}}:00 - {{training.endHour}}:00</td>
-                  <td><button class="btn btn-outline-light" (click)="showFormular(training.name) ">Make subscription</button></td>-->
+                  <td>{{training.day}}</td>
+                  <td><button class="btn btn-outline-light" (click)="showFormular(training.name,training.day) ">Make subscription</button></td>-->
                 </tr>
               </tbody>
             </table>

@@ -1,10 +1,11 @@
 <div bsModal class=" row modal fade customModal" #scanqrcodeModal="bs-modal" tabindex="1" role="dialog" aria-labelledby="scanqrcodeModal"
      aria-hidden="true">
+  <button id="exit_modal" (click)="closeModal()"><i class="fas fa-window-close" style="    color: #f75986;"></i></button>
   <h2 id="title_qrcode">Scan your QR code here:</h2>
   <zxing-scanner id="scanner_qrcode" *ngIf="scannerEnabled" #scanner (scanSuccess)="scanSuccessHandler($event)">
   </zxing-scanner>
   <img id="image_qrcode" src="https://i.ibb.co/kQ0b5vn/qr-code.gif" alt="qr-code" border="0">
-  <button id="tryagain_btn" class=" btn btn-fill btn-danger button " (click)="enableScanner()" *ngIf="!scannerEnabled" >Scan another code</button>
+  <button id="tryagain_btn" class=" btn btn-fill btn-danger button " (click)="enableScanner()" *ngIf="!scannerEnabled">Scan another code</button>
 
 
 

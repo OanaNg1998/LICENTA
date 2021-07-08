@@ -36,6 +36,7 @@ import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { NutritionfiltermodalComponent } from "../../pages/icons/nutritionfiltermodal/nutritionfiltermodal.component";
 import { AutocompleteLibModule } from "angular-ng-autocomplete";
 import { MatListModule } from '@angular/material/list';
+import { NavMenuComponent } from "../../nav-menu/nav-menu.component";
 
 
 
@@ -85,6 +86,7 @@ import { MatListModule } from '@angular/material/list';
     CheckoutmodalComponent,
     ScanqrcodemodalComponent,
     NutritionfiltermodalComponent,
+   
   
 
     

@@ -17,7 +17,7 @@ export const ROUTES: RouteInfo[] = [
   },
  */
   {
-    path: "maps",
+    path: "gyms",
     title: "Gyms",
     rtlTitle: "خرائط",
     icon: "icon-pin",
@@ -25,7 +25,7 @@ export const ROUTES: RouteInfo[] = [
   },
   
   {
-    path: "notifications",
+    path: "shoppingcart",
     title: "Your Shopping Cart",
     rtlTitle: "إخطارات",
     icon: "icon-bell-55",
@@ -33,14 +33,14 @@ export const ROUTES: RouteInfo[] = [
   },
 
   {
-    path: "user",
+    path: "equipment",
     title: "Equipments Shop",
     rtlTitle: "ملف تعريفي للمستخدم",
     icon: "icon-single-02",
     class: ""
   },
    {
-    path: "icons",
+    path: "nutrition",
     title: "Nutrition Shop",
     rtlTitle: "الرموز",
     icon: "icon-atom",

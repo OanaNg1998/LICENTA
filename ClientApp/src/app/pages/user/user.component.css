@@ -47,4 +47,8 @@
 #product_box2 {
   margin-top: 1%;
 }
+.eq_img{
+    max-height:250px;
+    max-width:150px;
+}
 

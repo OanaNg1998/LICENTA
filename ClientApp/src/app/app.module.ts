@@ -26,6 +26,8 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { ScanqrcodemodalComponent } from './pages/notifications/checkoutmodal/scanqrcodemodal/scanqrcodemodal.component';
 import { NutritionfiltermodalComponent } from './pages/icons/nutritionfiltermodal/nutritionfiltermodal.component';
 import { NotificationsComponent } from "./pages/notifications/notifications.component";
+import { CounterComponent } from "./counter/counter.component";
+import { FetchDataComponent } from "./fetch-data/fetch-data.component";
 
 
 
@@ -47,7 +49,9 @@ import { NotificationsComponent } from "./pages/notifications/notifications.comp
     RouterModule.forRoot([
     { path: 'login', component: HomeComponent },
     { path: 'home', component: AdminLayoutComponent, canActivate: [AuthorizeGuard] },
-    { path: '', component: HomeComponent },
+      { path: '', component: HomeComponent },
+      { path: 'contact', component: CounterComponent },
+      { path: 'aboutus', component: FetchDataComponent }
 ], { relativeLinkResolution: 'legacy' }),
 
    // AppRoutingModule,

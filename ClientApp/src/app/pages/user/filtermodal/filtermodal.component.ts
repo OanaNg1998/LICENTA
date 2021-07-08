@@ -51,6 +51,9 @@ export class FiltermodalComponent implements OnInit {
 
    
   }
+  closeModal() {
+    this.modal.hide();
+  }
 
   
   getValues(val) {

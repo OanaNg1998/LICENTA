@@ -7,6 +7,7 @@ export class NutritionProduct {
   Image: string;
   Weight: string;
   quantity: number;
+  Brand: string;
   
 
   

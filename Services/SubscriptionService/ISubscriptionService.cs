@@ -10,6 +10,7 @@ namespace JUSTMOVE.Services.SubscriptionService
    public interface ISubscriptionService
     {
         public Subscription CreateSubscription(Subscription subscription);
-        public Task<string> GetQRCodeAsync(string emailAddress);
+        public Task<string> GetQRCodeAsync(Reservation reservation);
+        public  Task<string> GetReservationInfoAsync(Reservation reservation);
     }
 }

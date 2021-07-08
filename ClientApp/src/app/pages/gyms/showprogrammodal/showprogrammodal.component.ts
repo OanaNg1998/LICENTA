@@ -58,8 +58,11 @@ export class ShowprogrammodalComponent implements OnInit {
     this.modal.show();
    
   }
-  showFormular(className:string) {
-    this.scheduleClassModal.initialize(className);
+  closeModal() {
+    this.modal.hide();
+  }
+  showFormular(className:string,day:string) {
+    this.scheduleClassModal.initialize(className,day);
     Swal.fire({
       title: '25 % OFF VOUCHER',
       text: 'Bring more than two friends and the voucher will be yours !!!',

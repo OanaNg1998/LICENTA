@@ -36,13 +36,21 @@ namespace JUSTMOVE.Controllers
             }
             return Ok(subscription);
         }
-        [HttpGet("Discount")]
-        public async Task<string> GetQRCode( string  emailAddress)
+        [HttpPost("Discount")]
+        public async Task<string> GetQRCode( Reservation reservation)
         {
-            string qrCode = await _subscriptionService.GetQRCodeAsync(emailAddress);
+            string qrCode = await _subscriptionService.GetQRCodeAsync(reservation);
 
             return "abcd";
         }
+        [HttpPost("Appointment")]
+        public async Task<string> GetReservation(Reservation reservation)
+        {
+            string isRegistered = await _subscriptionService.GetReservationInfoAsync(reservation);
+
+            return "ok";
+        }
+
 
 
 
